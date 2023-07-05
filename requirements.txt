@@ -1,3 +1,7 @@
 streamlit
 google-search-results
-
+gsheetsdb
+pandas
+oauth2client
+gspread
+datetime
