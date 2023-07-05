@@ -38,7 +38,7 @@ with col2:
     query = st.text_input(label=" ", placeholder="Search")
 
 if query: #Activates the code below on hitting Enter/Return in the search textbox
-    params = {"q": query, "device": "desktop", "hl": "en", "gl": "us", "num": "5", "api_key": Google_API_KEY, "output": "HTML"}
+    params = {"q": query, "device": "desktop", "hl": "en", "gl": "us", "num": "10", "api_key": Google_API_KEY, "output": "HTML"}
     # define the search search
     search = GoogleSearch(params)
     json_results = search.get_json()
@@ -69,7 +69,7 @@ if query: #Activates the code below on hitting Enter/Return in the search textbo
                 
     #st.markdown(f'{count_str}', unsafe_allow_html=True)
     st.markdown(f'{result_str}', unsafe_allow_html=True)
-    st.markdown('<h3>Data Frame of the above search result</h3>', unsafe_allow_html=True)
+    #st.markdown('<h3>Data Frame of the above search result</h3>', unsafe_allow_html=True)
     #st.dataframe(result_df)
 
 # else:
