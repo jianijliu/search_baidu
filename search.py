@@ -24,9 +24,9 @@ st.sidebar.info('''
 user_id = st.sidebar.text_input("Participation ID...")   # ask for participation id
 
 
+
 #### Test. Present HTML (reference: https://github.com/serpapi/google-search-results-python)
 Google_API_KEY = st.secrets['Google_API_KEY']
-
 
 st.markdown('<h1 style="background-color: gainsboro; padding-left: 10px; padding-bottom: 20px;">Google Search</h1>', unsafe_allow_html=True)
 st.markdown('\n')
@@ -35,12 +35,10 @@ col1, col2 = st.columns(2)
 with col1:
     st.image(image='GoogleSearch.png', width=300)
 with col2:
-    query = st.text_input(label="", help='Enter the search string and hit Enter/Return', placeholder="Search")
+    query = st.text_input(label="", placeholder="Search")
 
-   
 if query: #Activates the code below on hitting Enter/Return in the search textbox
-     params = {
-        "q": query, "device": "desktop", "hl": "en", "gl": "us", "num": "5", "api_key": Google_API_KEY, "output": "HTML"}
+    params = {"q": query, "device": "desktop", "hl": "en", "gl": "us", "num": "5", "api_key": Google_API_KEY, "output": "HTML"}
     # define the search search
     search = GoogleSearch(params)
     json_results = search.get_json()
@@ -56,9 +54,9 @@ if query: #Activates the code below on hitting Enter/Return in the search textbo
         #individual_search_result = BeautifulSoup(i, features="html.parser") #converting individual search result into a BeautifulSoup object
         url_txt = individual_search_result['title'] #Finding the title of the individual search result
         href = individual_search_result['link'] #title's URL of the individual search result
-        #In a few cases few individual search results doesn't have a description. In such cases the description would be blank
+        # In a few cases few individual search results doesn't have a description. In such cases the description would be blank
         description = "" if individual_search_result['snippet'] is None else individual_search_result['snippet']
-        #Appending the result data frame after processing each individual search result
+        # Appending the result data frame after processing each individual search result
         result_df = result_df.append(pd.DataFrame({"Title": url_txt, "URL": href, "Description": description}, index=[n]))
         count_str = f'<b style="font-size:20px;">Google Search returned {len(result_df)} results</b>'
         ########################################################
@@ -69,9 +67,7 @@ if query: #Activates the code below on hitting Enter/Return in the search textbo
         f'<tr style="border: none;">{description}</tr>'+\
         f'<tr style="border: none;"><td style="border: none;"></td></tr>'
     result_str += '</table></html>'
-            
-    #if the status code of the request isn't 200, then an error message is displayed along with an empty data frame        
-    
+                
     st.markdown(f'{count_str}', unsafe_allow_html=True)
     st.markdown(f'{result_str}', unsafe_allow_html=True)
     st.markdown('<h3>Data Frame of the above search result</h3>', unsafe_allow_html=True)
