@@ -58,17 +58,16 @@ if query: #Activates the code below on hitting Enter/Return in the search textbo
         description = "" if individual_search_result['snippet'] is None else individual_search_result['snippet']
         # Appending the result data frame after processing each individual search result
         #result_df = result_df.append(pd.DataFrame({"Title": url_txt, "URL": href, "Description": description}, index=[n]))
-        count_str = f'<b style="font-size:20px;">Google Search returned {len(result_df)} results</b>'
+        #count_str = f'<b style="font-size:20px;">Google Search returned {len(result_df)} results</b>'
         ########################################################
         ######### HTML code to display search results ##########
         ########################################################
         result_str += f'<tr style="border: none;"><h3><a href="{href}" target="_blank">{url_txt}</a></h3></tr>'+\
-        f'<tr style="border: none;"><strong style="color:green;">{cite}</strong></tr>'+\
         f'<tr style="border: none;">{description}</tr>'+\
         f'<tr style="border: none;"><td style="border: none;"></td></tr>'
     result_str += '</table></html>'
                 
-    st.markdown(f'{count_str}', unsafe_allow_html=True)
+    #st.markdown(f'{count_str}', unsafe_allow_html=True)
     st.markdown(f'{result_str}', unsafe_allow_html=True)
     st.markdown('<h3>Data Frame of the above search result</h3>', unsafe_allow_html=True)
     #st.dataframe(result_df)
