@@ -51,7 +51,6 @@ if query: #Activates the code below on hitting Enter/Return in the search textbo
     result_str = ""
     for n, i in enumerate(search_result): #iterating through the search results
         individual_search_result = i
-        #individual_search_result = BeautifulSoup(i, features="html.parser") #converting individual search result into a BeautifulSoup object
         url_txt = individual_search_result['title'] #Finding the title of the individual search result
         url_displayed = individual_search_result['displayed_link']
         href = individual_search_result['link'] #title's URL of the individual search result
@@ -64,9 +63,11 @@ if query: #Activates the code below on hitting Enter/Return in the search textbo
         ######### HTML code to display search results ##########
         ########################################################
         result_str += f'<tr style="border: none;"></tr>'+\
+        f'<tr style="border: none;"></tr>'+\
         f'<tr style="border: none;">{url_displayed}</tr>'+\
-        f'<tr style="border: none;"><h3><a href="{href}" target="_blank">{url_txt}</a></h3></tr>'+\
+        f'<tr style="border: none;"><h5><a href="{href}" target="_blank">{url_txt}</a></h5></tr>'+\
         f'<tr style="border: none;">{description}</tr>'+\
+        f'<tr style="border: none;"></tr>'+\
         f'<tr style="border: none;"><td style="border: none;"></td></tr>'
     result_str += '</table></html>'
                 
