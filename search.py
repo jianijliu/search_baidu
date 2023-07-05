@@ -63,7 +63,8 @@ if query: #Activates the code below on hitting Enter/Return in the search textbo
         ########################################################
         ######### HTML code to display search results ##########
         ########################################################
-        result_str += f'<tr style="border: none;">{url_displayed}</tr>'+\
+        result_str += f'<tr style="border: none;"></tr>'+\
+        f'<tr style="border: none;">{url_displayed}</tr>'+\
         f'<tr style="border: none;"><h3><a href="{href}" target="_blank">{url_txt}</a></h3></tr>'+\
         f'<tr style="border: none;">{description}</tr>'+\
         f'<tr style="border: none;"><td style="border: none;"></td></tr>'
