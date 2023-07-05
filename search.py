@@ -9,8 +9,8 @@ from serpapi import GoogleSearch
 
 
 #### part 0. main page setting
-st.set_page_config(page_title='ggsearch-Jiani', page_icon=':robot:')
-st.header("Ask Google")
+#st.set_page_config(page_title='ggsearch-Jiani', page_icon=':robot:')
+#st.header("Ask Google")
 
 
 #### part 1. Instruction (sidebar)
@@ -29,20 +29,14 @@ Google_API_KEY = st.secrets['Google_API_KEY']
 
 
 query = st.text_input("Search")   # ask for participation id
-params = {
-    "q": query,
-    "device": "desktop",
-    "hl": "en",
-    "gl": "us",
-    "num": "10",
-    "api_key": Google_API_KEY,
-    "output": "html"
-}
-# define the search search
-search = GoogleSearch(params)
-out_html = search.get_html()
-# present
-components.html(out_html)
+if query:
+    params = {
+        "q": query, "device": "desktop", "hl": "en", "gl": "us", "num": "10", "api_key": Google_API_KEY,"output": "HTML"}
+    # define the search search
+    search = GoogleSearch(params)
+    out_html = search.get_html()
+    # present
+    components.html(out_html)
 
 
 #else:
