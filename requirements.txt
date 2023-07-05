@@ -1,4 +1,3 @@
-langchain
-openai
-streamlit-chat
+streamlit
+google-search-results
 
