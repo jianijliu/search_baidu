@@ -27,8 +27,9 @@ user_id = st.sidebar.text_input("Participation ID...")   # ask for participation
 #### Test. Present HTML (reference: https://github.com/serpapi/google-search-results-python)
 Google_API_KEY = st.secrets['Google_API_KEY']
 
-
+st.image(image='GoogleSearch.png', width=600)
 query = st.text_input(label="", placeholder="Search")   # ask for participation id
+
 if query:
     params = {
         "q": query, "device": "desktop", "hl": "en", "gl": "us", "num": "10", "api_key": Google_API_KEY,"output": "HTML"}
