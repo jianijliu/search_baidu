@@ -53,6 +53,7 @@ if query: #Activates the code below on hitting Enter/Return in the search textbo
         individual_search_result = i
         #individual_search_result = BeautifulSoup(i, features="html.parser") #converting individual search result into a BeautifulSoup object
         url_txt = individual_search_result['title'] #Finding the title of the individual search result
+        url_displayed = individual_search_result['displayed_link']
         href = individual_search_result['link'] #title's URL of the individual search result
         # In a few cases few individual search results doesn't have a description. In such cases the description would be blank
         description = "" if individual_search_result['snippet'] is None else individual_search_result['snippet']
@@ -62,7 +63,8 @@ if query: #Activates the code below on hitting Enter/Return in the search textbo
         ########################################################
         ######### HTML code to display search results ##########
         ########################################################
-        result_str += f'<tr style="border: none;"><h3><a href="{href}" target="_blank">{url_txt}</a></h3></tr>'+\
+        result_str += f'<tr style="border: none;">{url_displayed}</tr>'+\
+        f'<tr style="border: none;"><h3><a href="{href}" target="_blank">{url_txt}</a></h3></tr>'+\
         f'<tr style="border: none;">{description}</tr>'+\
         f'<tr style="border: none;"><td style="border: none;"></td></tr>'
     result_str += '</table></html>'
