@@ -35,7 +35,7 @@ col1, col2 = st.columns(2)
 with col1:
     st.image(image='GoogleSearch.png', width=300)
 with col2:
-    query = st.text_input(label="", placeholder="Search")
+    query = st.text_input(label=" ", placeholder="Search")
 
 if query: #Activates the code below on hitting Enter/Return in the search textbox
     params = {"q": query, "device": "desktop", "hl": "en", "gl": "us", "num": "5", "api_key": Google_API_KEY, "output": "HTML"}
