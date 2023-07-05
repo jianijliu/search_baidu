@@ -28,6 +28,14 @@ user_id = st.sidebar.text_input("Participation ID...")   # ask for participation
 Google_API_KEY = st.secrets['Google_API_KEY']
 
 
+st.markdown('<h1 style="background-color: gainsboro; padding-left: 10px; padding-bottom: 20px;">Google Search</h1>', unsafe_allow_html=True)
+
+col1, col2 = st.columns(2)
+with col1:
+    st.image(image='GoogleSearch.png', width=300)
+with col2:
+    query = st.text_input(label="", help='Enter the search string and hit Enter/Return', placeholder="Search")
+
 
 if query:
     params = {
@@ -39,19 +47,8 @@ if query:
     #components.html(out_html)
 
 
-st.markdown('<h1 style="background-color: gainsboro; padding-left: 10px; padding-bottom: 20px;">Google Search</h1>', unsafe_allow_html=True)
-query = st.text_input('', help='Enter the search string and hit Enter/Return')
-query = query.replace(" ", "+") #replacing the spaces in query result with +
-
-col1, col2 = st.columns(2)
-with col1:
-    st.image(image='GoogleSearch.png', width=300)
-with col2:
-    query = st.text_input(label="", placeholder="Search")
-
-
 if query: #Activates the code below on hitting Enter/Return in the search textbox
-    try:#Exception handling 
+    try: #Exception handling 
         req = r.get(f"https://www.bing.com/search?q={query}",
                     headers = {"user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36"})
         result_str = '<html><table style="border: none;">' #Initializing the HTML code for displaying search results
