@@ -29,6 +29,7 @@ Google_API_KEY = st.secrets['Google_API_KEY']
 
 
 st.markdown('<h1 style="background-color: gainsboro; padding-left: 10px; padding-bottom: 20px;">Google Search</h1>', unsafe_allow_html=True)
+st.markdown('\n')
 
 col1, col2 = st.columns(2)
 with col1:
