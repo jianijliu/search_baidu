@@ -67,7 +67,8 @@ if query: #Activates the code below on hitting Enter/Return in the search textbo
         f'<tr style="border: none;">{url_displayed}</tr>'+\
         f'<tr style="border: none;"><h4><a href="{href}" target="_blank">{url_txt}</a></h4></tr>'+\
         f'<tr style="border: none;">{description}</tr>'+\
-        f'<tr style="border: none;"></tr>'+\
+        f'<tr></tr>'+\
+        f'<tr></tr>'+\
         f'<tr style="border: none;"><td style="border: none;"></td></tr>'
     #result_str += '</table></html>'
                 
