@@ -33,7 +33,7 @@ st.markdown('\n')
 
 col1, col2 = st.columns(2)
 with col1:
-    st.image(image='GoogleSearch.png', width=300)
+    st.image(image='GoogleSearch.png', width=150)
 with col2:
     query = st.text_input(label=" ", placeholder="Search")
 
