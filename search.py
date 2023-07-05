@@ -55,7 +55,10 @@ if query: #Activates the code below on hitting Enter/Return in the search textbo
         url_displayed = individual_search_result['displayed_link']
         href = individual_search_result['link'] #title's URL of the individual search result
         # In a few cases few individual search results doesn't have a description. In such cases the description would be blank
-        description = "" if individual_search_result['snippet'] is None else individual_search_result['snippet']
+        if individual_search_result.get('snippet') == None:
+            description = individual_search_result['snippet']
+        else:
+            description = " "            
         # Appending the result data frame after processing each individual search result
         #result_df = result_df.append(pd.DataFrame({"Title": url_txt, "URL": href, "Description": description}, index=[n]))
         #count_str = f'<b style="font-size:20px;">Google Search returned {len(result_df)} results</b>'
