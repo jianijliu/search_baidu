@@ -65,16 +65,13 @@ if query: #Activates the code below on hitting Enter/Return in the search textbo
         result_str += f'<tr style="border: none;"></tr>'+\
         f'<tr style="border: none;"></tr>'+\
         f'<tr style="border: none;">{url_displayed}</tr>'+\
-        f'<tr style="border: none;"><h5><a href="{href}" target="_blank">{url_txt}</a></h5></tr>'+\
+        f'<tr style="border: none;"><h4><a href="{href}" target="_blank">{url_txt}</a></h4></tr>'+\
         f'<tr style="border: none;">{description}</tr>'+\
         f'<tr style="border: none;"></tr>'+\
         f'<tr style="border: none;"><td style="border: none;"></td></tr>'
-    result_str += '</table></html>'
+    #result_str += '</table></html>'
                 
-    #st.markdown(f'{count_str}', unsafe_allow_html=True)
     st.markdown(f'{result_str}', unsafe_allow_html=True)
-    #st.markdown('<h3>Data Frame of the above search result</h3>', unsafe_allow_html=True)
-    #st.dataframe(result_df)
 
 # else:
 #    st.markdown("\n")
