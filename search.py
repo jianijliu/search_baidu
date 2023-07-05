@@ -55,7 +55,7 @@ if query: #Activates the code below on hitting Enter/Return in the search textbo
         url_displayed = individual_search_result['displayed_link']
         href = individual_search_result['link'] #title's URL of the individual search result
         # In a few cases few individual search results doesn't have a description. In such cases the description would be blank
-        if individual_search_result.get('snippet') == None:
+        if individual_search_result.get('snippet') != None:
             description = individual_search_result['snippet']
         else:
             description = " "            
