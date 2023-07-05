@@ -86,7 +86,7 @@ if query:
     search = GoogleSearch(params)
     out_html = search.get_html()
     # present
-    components.html(out_html)
+    #components.html(out_html)
 
 
 #else:
