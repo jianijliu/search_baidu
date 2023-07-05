@@ -48,7 +48,7 @@ if query: #Activates the code below on hitting Enter/Return in the search textbo
     # components.html(out_html)
     
     result_df = pd.DataFrame() #Initializing the data frame that stores the results
-            
+    result_str = ""
     for n, i in enumerate(search_result): #iterating through the search results
         individual_search_result = i
         #individual_search_result = BeautifulSoup(i, features="html.parser") #converting individual search result into a BeautifulSoup object
