@@ -10,7 +10,8 @@ from serpapi import GoogleSearch
 #### Test. Present HTML (reference: https://github.com/serpapi/google-search-results-python)
 Google_API_KEY = st.secrets['Google_API_KEY']
 
-query =
+query = st.text_input("Participation ID...")   # ask for participation id
+
 params = {
     "q": query,
     "device": "desktop",
