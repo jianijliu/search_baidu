@@ -37,6 +37,27 @@ with col1:
 with col2:
     query = st.text_input(label=" ", placeholder="Search")
 
+def click_components(name, key = None):
+    """
+    Create a new instance of "click_components", 
+    (refer: https://docs.streamlit.io/library/components/components-api#create-a-bi-directional-component)
+    name: str
+        The name of the thing we're saying hello to. The component will display
+        the text "Hello, {name}!"
+    key: str or None
+        An optional key that uniquely identifies this component. If this is
+        None, and the component's arguments are changed, the component will
+        be re-mounted in the Streamlit frontend and lose its current state.
+    Returns
+    -------
+    int
+        The number of times the component's "Click Me" button has been clicked.
+        (This is the value passed to `Streamlit.setComponentValue` on the
+        frontend.)
+    """
+    component_value = _component_func(name=name, key=key, default=0)
+    return component_value
+
 if query: #Activates the code below on hitting Enter/Return in the search textbox
     params = {"q": query, "device": "desktop", "hl": "en", "gl": "us", "num": "13", "api_key": Google_API_KEY, "output": "HTML"}
     # define the search search
@@ -65,10 +86,12 @@ if query: #Activates the code below on hitting Enter/Return in the search textbo
         ########################################################
         ######### HTML code to display search results ##########
         ########################################################
-        st.markdown(f'<tr style="border: none;"></tr>', unsafe_allow_html=True)
-        st.markdown(f'<tr style="border: none;">{url_displayed}</tr>', unsafe_allow_html=True)
-        st.markdown(f'<tr style="border: none;"><h4><a href="{href}" target="_blank">{url_txt}</a></h4></tr>', unsafe_allow_html=True)
-        
+        num_clicks = click_components(url_displayed)
+        #st.markdown(f'<tr style="border: none;"></tr>', unsafe_allow_html=True)
+        #st.markdown(f'<tr style="border: none;">{url_displayed}</tr>', unsafe_allow_html=True)
+        #st.markdown(f'<tr style="border: none;"><h4><a href="{href}" target="_blank">{url_txt}</a></h4></tr>', unsafe_allow_html=True)
+        #st.markdown("You've clicked %s times!" % int(num_clicks))
+
         result_str += f'<tr style="border: none;"></tr>'+\
         f'<tr style="border: none;"></tr>'+\
         f'<tr style="border: none;">{url_displayed}</tr>'+\
