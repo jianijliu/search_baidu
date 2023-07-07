@@ -39,7 +39,6 @@ sheet_url = st.secrets["private_gsheets_url"]
 sheet = client.open_by_url(sheet_url).sheet1   # select a worksheet
 
 
-
 #### Set Google Search Key (reference: https://github.com/serpapi/google-search-results-python)
 Google_API_KEY = st.secrets['Google_API_KEY']
 
@@ -84,7 +83,6 @@ if user_id:
             ########################################################
             ######### HTML code to display search results ##########
             ########################################################
-            num_clicks = click_components(url_displayed)
             #st.markdown(f'<tr style="border: none;"></tr>', unsafe_allow_html=True)
             #st.markdown(f'<tr style="border: none;">{url_displayed}</tr>', unsafe_allow_html=True)
             #st.markdown(f'<tr style="border: none;"><h4><a href="{href}" target="_blank">{url_txt}</a></h4></tr>', unsafe_allow_html=True)
