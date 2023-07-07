@@ -77,16 +77,14 @@ if user_id:
                 description = individual_search_result['snippet']
             else:
                 description = " "            
-            #Appending the result data frame after processing each individual search result
-            #result_df = result_df.append(pd.DataFrame({"Title": url_txt, "URL": href, "Description": description}, index=[n]))
-            #count_str = f'<b style="font-size:20px;">Google Search returned {len(result_df)} results</b>'
+            # Present the result data frame after processing each individual search result
             ########################################################
             ######### HTML code to display search results ##########
             ########################################################
-            #st.markdown(f'<tr style="border: none;"></tr>', unsafe_allow_html=True)
-            #st.markdown(f'<tr style="border: none;">{url_displayed}</tr>', unsafe_allow_html=True)
-            #st.markdown(f'<tr style="border: none;"><h4><a href="{href}" target="_blank">{url_txt}</a></h4></tr>', unsafe_allow_html=True)
-            #st.markdown("You've clicked %s times!" % int(num_clicks))
+            st.markdown(f'<tr style="border: none;"></tr>', unsafe_allow_html=True)
+            st.markdown(f'<tr style="border: none;">{url_displayed}</tr>', unsafe_allow_html=True)
+            st.markdown(f'<tr style="border: none;"><h4><a href="{href}" target="_blank">{url_txt}</a></h4></tr>', unsafe_allow_html=True)
+            st.markdown("You've clicked %s times!" % int(num_clicks))
 
             result_str += f'<tr style="border: none;"></tr>'+\
             f'<tr style="border: none;"></tr>'+\
@@ -97,8 +95,9 @@ if user_id:
             f'<tr></tr>'+\
             f'<tr style="border: none;"><td style="border: none;"></td></tr>'
             save_str += {url_test}+ " " + {description} + "///"
+        
         # result_str += '</table></html>'            
-        st.markdown(f'{result_str}', unsafe_allow_html=True)
+        # st.markdown(f'{result_str}', unsafe_allow_html=True)
         output_time = str(datetime.now())
         row = [user_id, input_time, query, output_time, save_str]
         sheet.insert_row(row)
