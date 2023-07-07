@@ -13,6 +13,8 @@ from serpapi import GoogleSearch
 #st.set_page_config(page_title='ggsearch-Jiani', page_icon=':robot:')
 #st.header("Ask Google")
 
+st.markdown('<h1 style="background-color: gainsboro; padding-left: 10px; padding-bottom: 20px;">Google Search</h1>', unsafe_allow_html=True)
+st.markdown('\n')
 
 #### part 1. Instruction (sidebar)
 st.sidebar.title("Instruction")
@@ -23,7 +25,6 @@ st.sidebar.info('''
     \n Please paste down your participation ID and press Enter to submit: 
     ''')
 user_id = st.sidebar.text_input("Participation ID...")   # ask for participation id
-
 
 #### Connect to Google Sheets (reference: https://docs.streamlit.io/knowledge-base/tutorials/databases/private-gsheet)
 # Create a connection object.
@@ -44,9 +45,6 @@ Google_API_KEY = st.secrets['Google_API_KEY']
 
 
 if user_id: 
-    st.markdown('<h1 style="background-color: gainsboro; padding-left: 10px; padding-bottom: 20px;">Google Search</h1>', unsafe_allow_html=True)
-    st.markdown('\n')
-
     col1, col2 = st.columns([1.5, 3])
     with col1:
         st.image(image='GoogleSearch.png', width=150)
