@@ -13,8 +13,6 @@ from serpapi import GoogleSearch
 #st.set_page_config(page_title='ggsearch-Jiani', page_icon=':robot:')
 #st.header("Ask Google")
 
-st.markdown('<h1 style="background-color: gainsboro; padding-left: 10px; padding-bottom: 20px;">Google Search</h1>', unsafe_allow_html=True)
-st.markdown('\n')
 
 #### part 1. Instruction (sidebar)
 st.sidebar.title("Instruction")
@@ -25,6 +23,7 @@ st.sidebar.info('''
     \n Please paste down your participation ID and press Enter to submit: 
     ''')
 user_id = st.sidebar.text_input("Participation ID...")   # ask for participation id
+
 
 #### Connect to Google Sheets (reference: https://docs.streamlit.io/knowledge-base/tutorials/databases/private-gsheet)
 # Create a connection object.
@@ -92,7 +91,7 @@ if user_id:
             f'<tr></tr>'+\
             f'<tr style="border: none;"><td style="border: none;"></td></tr>'
             output_time = str(datetime.now())
-            save_str = "[" + str(n) + "] " + url_displayed + "_____" + href + "_____" + description + "///"
+            save_str = "[" + str(n) + "] " + url_displayed + "|||||" + href + "|||||" + description
             row = [user_id, input_time, query, output_time, save_str]
             sheet.insert_row(row)
         
@@ -100,5 +99,6 @@ if user_id:
         st.markdown(f'{result_str}', unsafe_allow_html=True)
 
 else:
+    st.markdown('<h1 style="background-color: gainsboro; padding-left: 10px; padding-bottom: 20px;">Google Search</h1>', unsafe_allow_html=True)
     st.markdown("\n")
     st.markdown("Please read instructions in the sidebar carefully and type in your participant ID first!")
