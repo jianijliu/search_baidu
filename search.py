@@ -93,7 +93,7 @@ if user_id:
             f'<tr></tr>'+\
             f'<tr></tr>'+\
             f'<tr style="border: none;"><td style="border: none;"></td></tr>'
-            save_str += {url_test}+ " " + {description} + "///"
+            save_str += {url_displayed} + "_____" + {href} + "_____" + {description} + "///"
         
         # result_str += '</table></html>'            
         st.markdown(f'{result_str}', unsafe_allow_html=True)
