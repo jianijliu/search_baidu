@@ -3,6 +3,7 @@ from google.oauth2 import service_account
 from gsheetsdb import connect
 import streamlit.components.v1 as components
 import pandas as pd
+import gspread
 from datetime import datetime
 import socket
 from serpapi import GoogleSearch
