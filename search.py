@@ -93,13 +93,14 @@ if user_id:
             f'<tr></tr>'+\
             f'<tr></tr>'+\
             f'<tr style="border: none;"><td style="border: none;"></td></tr>'
-            save_str += url_displayed + "_____" + href + "_____" + description + "///"
+            save_str = "[" + n + "] " + url_displayed + "_____" + href + "_____" + description + "///"
+            row = [user_id, input_time, query, output_time, save_str]
+            sheet.insert_row(row)
         
         # result_str += '</table></html>'            
         st.markdown(f'{result_str}', unsafe_allow_html=True)
         output_time = str(datetime.now())
-        row = [user_id, input_time, query, output_time, save_str]
-        sheet.insert_row(row)
+        
 
 else:
     st.markdown("\n")
