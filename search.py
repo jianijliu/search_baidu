@@ -94,7 +94,7 @@ if user_id:
             f'<tr></tr>'+\
             f'<tr style="border: none;"><td style="border: none;"></td></tr>'
             output_time = str(datetime.now())
-            save_str = "[" + n + "] " + url_displayed + "_____" + href + "_____" + description + "///"
+            save_str = "[" + str(n) + "] " + url_displayed + "_____" + href + "_____" + description + "///"
             row = [user_id, input_time, query, output_time, save_str]
             sheet.insert_row(row)
         
