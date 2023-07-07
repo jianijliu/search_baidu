@@ -54,7 +54,7 @@ if user_id:
         
     if query: #Activates the code below on hitting Enter/Return in the search textbox
         input_time = str(datetime.now())
-        params = {"q": query, "device": "desktop", "hl": "en", "gl": "us", "num": "10", "api_key": Google_API_KEY, "output": "HTML"}
+        params = {"q": query, "device": "desktop", "hl": "en", "gl": "us", "num": "11", "api_key": Google_API_KEY, "output": "HTML"}
         # define the search search
         search = GoogleSearch(params)
         json_results = search.get_json()
