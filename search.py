@@ -54,7 +54,7 @@ if user_id:
         
     if query: #Activates the code below on hitting Enter/Return in the search textbox
         input_time = str(datetime.now())
-        params = {"q": query, "device": "desktop", "hl": "en", "gl": "us", "num": "11", "api_key": Google_API_KEY, "output": "HTML"}
+        params = {"q": query, "device": "desktop", "hl": "en", "gl": "us", "num": "15", "api_key": Google_API_KEY, "output": "HTML"}
         # define the search search
         search = GoogleSearch(params)
         json_results = search.get_json()
@@ -67,6 +67,7 @@ if user_id:
         result_str = "<html>"
         save_str = ""
         for n, i in enumerate(search_result): #iterating through the search results
+            
             individual_search_result = i
             url_txt = individual_search_result['title'] #Finding the title of the individual search result
             url_displayed = individual_search_result['displayed_link']
@@ -75,27 +76,27 @@ if user_id:
             if individual_search_result.get('snippet') != None:
                 description = individual_search_result['snippet']
             else:
-                description = " "            
-            # Present the result data frame after processing each individual search result
+                description = " "    
+                
+            # Present and Save the result data frame after processing each individual search result
             ########################################################
             ######### HTML code to display search results ##########
             ########################################################
-            #st.markdown(f'<tr style="border: none;"></tr>', unsafe_allow_html=True)
-            #st.markdown(f'<tr style="border: none;">{url_displayed}</tr>', unsafe_allow_html=True)
-            #st.markdown(f'<tr style="border: none;"><h4><a href="{href}" target="_blank">{url_txt}</a></h4></tr>', unsafe_allow_html=True)
-
-            result_str += f'<tr style="border: none;"></tr>'+\
-            f'<tr style="border: none;"></tr>'+\
-            f'<tr style="border: none;">{url_displayed}</tr>'+\
-            f'<tr style="border: none;"><h4><a href="{href}" target="_blank">{url_txt}</a></h4></tr>'+\
-            f'<tr style="border: none;">{description}</tr>'+\
-            f'<tr></tr>'+\
-            f'<tr></tr>'+\
-            f'<tr style="border: none;"><td style="border: none;"></td></tr>'
-            output_time = str(datetime.now())
-            save_str = "[" + str(n) + "] " + url_displayed + "|||||" + href + "|||||" + description
-            row = [user_id, input_time, query, output_time, save_str]
-            sheet.insert_row(row)
+            if n < 10:
+                result_str += f'<tr style="border: none;"></tr>'+\
+                f'<tr style="border: none;"></tr>'+\
+                f'<tr style="border: none;">{url_displayed}</tr>'+\
+                f'<tr style="border: none;"><h4><a href="{href}" target="_blank">{url_txt}</a></h4></tr>'+\
+                f'<tr style="border: none;">{description}</tr>'+\
+                f'<tr></tr>'+\
+                f'<tr></tr>'+\
+                f'<tr style="border: none;"><td style="border: none;"></td></tr>'
+                output_time = str(datetime.now())
+                save_str = "[" + str(n) + "] " + url_displayed + "|||||" + href + "|||||" + description
+                row = [user_id, input_time, query, output_time, save_str]
+                sheet.insert_row(row)
+            else:
+                pass
         
         # result_str += '</table></html>'            
         st.markdown(f'{result_str}', unsafe_allow_html=True)
