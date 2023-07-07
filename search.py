@@ -42,37 +42,17 @@ sheet = client.open_by_url(sheet_url).sheet1   # select a worksheet
 #### Set Google Search Key (reference: https://github.com/serpapi/google-search-results-python)
 Google_API_KEY = st.secrets['Google_API_KEY']
 
-st.markdown('<h1 style="background-color: gainsboro; padding-left: 10px; padding-bottom: 20px;">Google Search</h1>', unsafe_allow_html=True)
-st.markdown('\n')
-
-col1, col2 = st.columns([1.5, 3])
-with col1:
-    st.image(image='GoogleSearch.png', width=150)
-with col2:
-    query = st.text_input(label=" ", placeholder="Search")
-
-def click_components(name, key = None):
-    """
-    Create a new instance of "click_components", 
-    (refer: https://docs.streamlit.io/library/components/components-api#create-a-bi-directional-component)
-    name: str
-        The name of the thing we're saying hello to. The component will display
-        the text "Hello, {name}!"
-    key: str or None
-        An optional key that uniquely identifies this component. If this is
-        None, and the component's arguments are changed, the component will
-        be re-mounted in the Streamlit frontend and lose its current state.
-    Returns
-    -------
-    int
-        The number of times the component's "Click Me" button has been clicked.
-        (This is the value passed to `Streamlit.setComponentValue` on the
-        frontend.)
-    """
-    component_value = _component_func(name=name, key=key, default=0)
-    return component_value
 
 if user_id: 
+    st.markdown('<h1 style="background-color: gainsboro; padding-left: 10px; padding-bottom: 20px;">Google Search</h1>', unsafe_allow_html=True)
+    st.markdown('\n')
+
+    col1, col2 = st.columns([1.5, 3])
+    with col1:
+        st.image(image='GoogleSearch.png', width=150)
+    with col2:
+        query = st.text_input(label=" ", placeholder="Search")
+        
     if query: #Activates the code below on hitting Enter/Return in the search textbox
         input_time = str(datetime.now())
         params = {"q": query, "device": "desktop", "hl": "en", "gl": "us", "num": "13", "api_key": Google_API_KEY, "output": "HTML"}
