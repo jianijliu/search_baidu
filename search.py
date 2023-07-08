@@ -48,7 +48,7 @@ Google_API_KEY = st.secrets['Google_API_KEY']
 if user_id: 
     col1, col2 = st.columns([1.5, 3])
     with col1:
-        st.image(image='GoogleSearch.png', width=150)
+        st.image(image='lumina.png', width=150)
     with col2:
         query = st.text_input(label=" ", placeholder="Search")
         
@@ -102,6 +102,6 @@ if user_id:
         st.markdown(f'{result_str}', unsafe_allow_html=True)
 
 else:
-    st.header("Google Search")
+    # st.header("")
     st.markdown("\n")
     st.markdown("Please read instructions in the sidebar carefully and type in your participant ID first!")
