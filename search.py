@@ -122,10 +122,10 @@ if user_id:
         # result_str += '</table></html>'            
         # st.markdown(f'{result_str}', unsafe_allow_html=True)
 
-        # record clicks
-        clicked = click_detector(result_str)
-        if clicked: 
-            st.markdown(f"**{clicked} clicked**" if clicked != "" else "")
+    # record clicks
+    clicked = click_detector(result_str)
+    if clicked: 
+        st.markdown(f"**{clicked} clicked**" if clicked != "" else "")
 
         # st.markdown(clicked)
         # sheet.insert_row(clicked)
