@@ -72,7 +72,6 @@ if user_id:
         result_str = "<html>"
         save_str = ""
         for n, i in enumerate(search_result): #iterating through the search results
-            
             individual_search_result = i
             url_txt = individual_search_result['title'] #Finding the title of the individual search result
             url_displayed = individual_search_result['displayed_link']
@@ -88,7 +87,7 @@ if user_id:
             ######### HTML code to display search results ##########
             ########################################################
             if n < 10:
-                st.markdown( f'<tr style="border: none;"></tr>', unsafe_allow_html=True)
+                num_click = click_detector('<a href="{href}" target="_blank">{url_txt}</a>', key = str(n))
                 st.markdown( f'<tr style="border: none;">{url_displayed}</tr>', unsafe_allow_html=True)
                 st.markdown( f'<tr style="border: none;"><h4><a href="{href}" target="_blank">{url_txt}</a></h4></tr>', unsafe_allow_html=True)
                 st.markdown( f'<tr style="border: none;">{description}</tr>', unsafe_allow_html=True)
@@ -111,7 +110,13 @@ if user_id:
         # result_str += '</table></html>'            
         # st.markdown(f'{result_str}', unsafe_allow_html=True)
 
-else:
+    ## after print, detect click
+    num_clicks = []
+    for i in range(10):
+        num_click = click_detector('<a href="{href}" target="_blank">{url_txt}</a>', key = str(n))
+        num_clicks.append(num_click)
+        sheet.insert_row(num_clicks)
+else:    
     # st.header("")
     st.markdown("\n")
     st.markdown("<h5 style='text-align: center;'>Please read instructions in the sidebar carefully and \n type in your participant ID first!</h5>", unsafe_allow_html=True)
