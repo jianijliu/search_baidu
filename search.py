@@ -19,7 +19,7 @@ from serpapi import GoogleSearch
 st.sidebar.title("Instruction")
 counter_placeholder = st.sidebar.empty()
 st.sidebar.info('''
-    You will be asked to have a conversation with ChatGPT to **generate a recipe**. \n
+    You will be asked to use the recommendation AI, Lumina, to **generate a recipe**. \n
     Following the chat, you’ll be redirected back to the survey to answer a few final questions and receive your payment code. 
     \n Please paste down your participation ID and press Enter to submit: 
     ''')
