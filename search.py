@@ -110,10 +110,12 @@ if user_id:
             else:
                 pass
         
-        result_str += '</html>'
-        num_click = click_detector(result_str)
         st.markdown(f'{result_str}', unsafe_allow_html=True)
+        
+        # record clicks
+        clicked = click_detector(result_str)
         sheet.insert_row(clicked)
+        
 else:    
     # st.header("")
     st.markdown("\n")
