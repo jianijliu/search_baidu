@@ -56,7 +56,7 @@ Google_API_KEY = st.secrets['Google_API_KEY']
 
 
 
-content = """<p><a href="https://www.google.com.hk/webhp?hl=zh-CN&sourceid=cnhp&gws_rd=ssl" id='Link 1'>First link</a></p>
+content = """<p><a href="https://www.google.com" id='Link 1'>https://www.google.com</a></p>
     <tr style="border: none;"><h5><a href="#" id="Link 2" target="_blank">{url_txt}</a></h5></tr>
     
     """
