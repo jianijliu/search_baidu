@@ -53,7 +53,7 @@ Google_API_KEY = st.secrets['Google_API_KEY']
 # st.markdown('<h1 style="background-color: gainsboro; padding-left: 10px; padding-bottom: 20px;">Google Search</h1>', unsafe_allow_html=True)
 
 if user_id: 
-    query = st.text_input(label=" ", placeholder="Search")
+    query = st.text_input(label=" ", placeholder="ask Lumina.AI")
         
     if query: #Activates the code below on hitting Enter/Return in the search textbox
         input_time = str(datetime.now())
