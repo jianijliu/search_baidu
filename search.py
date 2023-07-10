@@ -57,18 +57,6 @@ Google_API_KEY = st.secrets['Google_API_KEY']
 
 
 
-content = """<p><a href='#' id='Link 1'>First link</a></p>
-    <p><a href='#' id='Link 2'>Second link</a></p>
-    <a href='#' id='Image 1'><img width='20%' src='https://images.unsplash.com/photo-1565130838609-c3a86655db61?w=200'></a>
-    """
-clicked = click_detector(content)
-if clicked:
-    st.markdown(clicked)
-# st.markdown(f"**{clicked} clicked**" if clicked != "" else "**No click**")
-
-
-
-
 
 if user_id: 
     # query = st.text_input(label=" ", placeholder="ask Lumina.AI")
@@ -107,7 +95,7 @@ if user_id:
                 result_str += f'<tr style="border: none;"></tr>'+\
                 f'<tr style="border: none;"></tr>'+\
                 f'<tr style="border: none;">{url_displayed}</tr>'+\
-                f'<tr style="border: none;"><h4><a href="{href}" id="Link {str(n)}" target="_blank">{url_txt}</a></h4></tr>'+\
+                f'<tr style="border: none;"><h5><a href="{href}" id="Link {str(n)}" target="_blank">{url_txt}</a></h5></tr>'+\
                 f'<tr style="border: none;">{description}</tr>'+\
                 f'<tr></tr>'+\
                 f'<tr></tr>'+\
