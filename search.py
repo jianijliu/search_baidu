@@ -74,7 +74,7 @@ if user_id:
         # components.html(out_html)
     
         result_df = pd.DataFrame() #Initializing the data frame that stores the results
-        result_str = "<html>"
+        result_str = ""
         save_str = ""
         for n, i in enumerate(search_result): #iterating through the search results
             individual_search_result = i
