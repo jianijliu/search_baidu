@@ -55,21 +55,12 @@ Google_API_KEY = st.secrets['Google_API_KEY']
 # st.markdown('<h1 style="background-color: gainsboro; padding-left: 10px; padding-bottom: 20px;">Google Search</h1>', unsafe_allow_html=True)
 
 
-
-content = """<p><a href="https://www.google.com" id='Link 1'>https://www.google.com</a></p>
-    """
-clicked = click_detector(content)
-
-st.markdown(f"**{clicked} clicked**" if clicked != "" else "**No click**")
-
-
-
 if user_id: 
     # query = st.text_input(label=" ", placeholder="ask Lumina.AI")
     query = st.chat_input("ask Lumina.AI")
-    result_str = ""
     
     if query: #Activates the code below on hitting Enter/Return in the search textbox
+        result_str = ""
         input_time = str(datetime.now())
         params = {"q": query, "device": "desktop", "hl": "en", "gl": "us", "num": "20", "api_key": Google_API_KEY, "output": "HTML"}
         # define the search search
@@ -99,6 +90,7 @@ if user_id:
             ######### HTML code to display search results ##########
             ########################################################
             if n < 10:
+                st.button(href)
                 result_str += f'<tr style="border: none;"><h5><a href="{href}" id="Link {str(n)}" target="_blank">https://www.google.com</a></h5></tr>'
                 #result_str += f'<tr style="border: none;"></tr>'+\
                 #f'<tr style="border: none;"></tr>'+\
