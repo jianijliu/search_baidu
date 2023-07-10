@@ -61,7 +61,8 @@ Google_API_KEY = st.secrets['Google_API_KEY']
 if user_id: 
     # query = st.text_input(label=" ", placeholder="ask Lumina.AI")
     query = st.chat_input("ask Lumina.AI")
-        
+    result_str = ""
+    
     if query: #Activates the code below on hitting Enter/Return in the search textbox
         input_time = str(datetime.now())
         params = {"q": query, "device": "desktop", "hl": "en", "gl": "us", "num": "20", "api_key": Google_API_KEY, "output": "HTML"}
