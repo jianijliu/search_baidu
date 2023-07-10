@@ -112,6 +112,7 @@ if user_id:
         # st.markdown(f'{result_str}', unsafe_allow_html=True)
 
         # record clicks
+    if result_str:
         clicked = click_detector(result_str)
         st.markdown(f"**{clicked} clicked**" if clicked != "" else "")
 
