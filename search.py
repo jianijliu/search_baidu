@@ -92,9 +92,7 @@ if user_id:
             ######### HTML code to display search results ##########
             ########################################################
             if n < 10:
-                result_str += f"""
-                    <p><a href="{href}" id='Link {str(n)}'>{url_txt}</a></p>
-                """
+                result_str += f'<tr style="border: none;"><h5><a href="{href}" id="Link {str(n)}" target="_blank">{url_txt}</a></h5></tr>'
                 #result_str += f'<tr style="border: none;"></tr>'+\
                 #f'<tr style="border: none;"></tr>'+\
                 #f'<tr style="border: none;">{url_displayed}</tr>'+\
