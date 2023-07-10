@@ -8,6 +8,7 @@ from datetime import datetime
 import socket
 from serpapi import GoogleSearch
 
+#### Demo: https://search-test-jiani.streamlit.app/
 
 #### part 0. main page setting
 #st.set_page_config(page_title='ggsearch-Jiani', page_icon=':robot:')
