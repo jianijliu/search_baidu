@@ -89,7 +89,6 @@ if user_id:
             ########################################################
             if n < 10:
                 st.markdown( f'<tr style="border: none;"></tr>', unsafe_allow_html=True)
-                st.markdown( f'<tr style="border: none;"></tr>', unsafe_allow_html=True)
                 st.markdown( f'<tr style="border: none;">{url_displayed}</tr>', unsafe_allow_html=True)
                 st.markdown( f'<tr style="border: none;"><h4><a href="{href}" target="_blank">{url_txt}</a></h4></tr>', unsafe_allow_html=True)
                 st.markdown( f'<tr style="border: none;">{description}</tr>', unsafe_allow_html=True)
