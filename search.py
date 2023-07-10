@@ -113,7 +113,7 @@ if user_id:
     ## after print, detect click
     num_clicks = []
     for i in range(10):
-        num_click = click_detector('<a href="{href}" target="_blank">{url_txt}</a>', key = str(n))
+        num_click = click_detector(key = str(n))
         num_clicks.append(num_click)
         sheet.insert_row(num_clicks)
 else:    
