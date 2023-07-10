@@ -114,21 +114,9 @@ if user_id:
 
         # record clicks
         #if result_str:
-        clicked = click_detector(result_str)
-        if clicked != "":
-            change_query = False
-            if "last_clicked" not in st.session_state:
-                st.session_state["last_clicked"] = clicked
-                change_query = True
-            else:
-                if clicked != st.session_state["last_clicked"]:
-                    st.session_state["last_clicked"] = clicked
-                    change_query = True
-            if change_query:
-                st.session_state["query"] = f"[Similar:{clicked}] {df.iloc[int(clicked)].title}"
-                st.experimental_rerun()
-                
-        #st.markdown(f"**{clicked} clicked**" if clicked != "" else "")
+        clicked = click_detector(result_str)                
+        st.markdown(f"**{clicked} clicked**" if clicked != "" else "")
+        clicked = click_detector(result_str)   
 
         # st.markdown(clicked)
         # sheet.insert_row(clicked)
