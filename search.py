@@ -93,7 +93,7 @@ if user_id:
             ########################################################
             if n < 10:
                 result_str += f"""
-                    <p><a href='#' id='Link {str(n)}'>{url_txt}</a></p>
+                    <p><a href="{href}" id='Link {str(n)}'>{url_txt}</a></p>
                 """
                 #result_str += f'<tr style="border: none;"></tr>'+\
                 #f'<tr style="border: none;"></tr>'+\
