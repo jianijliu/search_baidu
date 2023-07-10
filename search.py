@@ -90,7 +90,7 @@ if user_id:
                 result_str += f'<tr style="border: none;"></tr>'+\
                 f'<tr style="border: none;"></tr>'+\
                 f'<tr style="border: none;">{url_displayed}</tr>'+\
-                f'<tr style="border: none;"><h4><a href="{href}" id="Link {str(n)}" target="_blank">{url_txt}</a></h4></tr>'+\
+                f'<tr style="border: none;"><h4><a href="{href}" target="_blank">{url_txt}</a></h4></tr>'+\
                 f'<tr style="border: none;">{description}</tr>'+\
                 f'<tr></tr>'+\
                 f'<tr></tr>'+\
