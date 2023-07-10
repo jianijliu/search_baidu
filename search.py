@@ -110,11 +110,24 @@ if user_id:
                 pass
         
         # result_str += '</table></html>'            
-        st.markdown(f'{result_str}', unsafe_allow_html=True)
+        # st.markdown(f'{result_str}', unsafe_allow_html=True)
 
         # record clicks
-    #if result_str:
-        #clicked = click_detector(result_str)
+        #if result_str:
+        clicked = click_detector(result_str)
+        if clicked != "":
+            change_query = False
+            if "last_clicked" not in st.session_state:
+                st.session_state["last_clicked"] = clicked
+                change_query = True
+            else:
+                if clicked != st.session_state["last_clicked"]:
+                    st.session_state["last_clicked"] = clicked
+                    change_query = True
+            if change_query:
+                st.session_state["query"] = f"[Similar:{clicked}] {df.iloc[int(clicked)].title}"
+                st.experimental_rerun()
+                
         #st.markdown(f"**{clicked} clicked**" if clicked != "" else "")
 
         # st.markdown(clicked)
