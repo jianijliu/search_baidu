@@ -43,6 +43,7 @@ credentials = service_account.Credentials.from_service_account_info(
 conn = connect(credentials=credentials)
 client = gspread.authorize(credentials)
 
+
 # Read Google Sheets
 sheet_url = st.secrets["private_gsheets_url"]
 sheet = client.open_by_url(sheet_url).sheet1   # select a worksheet
@@ -53,15 +54,21 @@ Google_API_KEY = st.secrets['Google_API_KEY']
 
 # st.markdown('<h1 style="background-color: gainsboro; padding-left: 10px; padding-bottom: 20px;">Google Search</h1>', unsafe_allow_html=True)
 
+
+
+
 content = """<p><a href='#' id='Link 1'>First link</a></p>
     <p><a href='#' id='Link 2'>Second link</a></p>
     <a href='#' id='Image 1'><img width='20%' src='https://images.unsplash.com/photo-1565130838609-c3a86655db61?w=200'></a>
-    <a href='#' id='Image 2'><img width='20%' src='https://images.unsplash.com/photo-1565372195458-9de0b320ef04?w=200'></a>
     """
 clicked = click_detector(content)
 if clicked:
     st.markdown(clicked)
 # st.markdown(f"**{clicked} clicked**" if clicked != "" else "**No click**")
+
+
+
+
 
 if user_id: 
     # query = st.text_input(label=" ", placeholder="ask Lumina.AI")
