@@ -87,22 +87,14 @@ if user_id:
             ######### HTML code to display search results ##########
             ########################################################
             if n < 10:
-                # show HTML
                 result_str += f'<tr style="border: none;"></tr>'+\
                 f'<tr style="border: none;"></tr>'+\
                 f'<tr style="border: none;">{url_displayed}</tr>'+\
-                f'<tr style="border: none;"><h4><a href="{href}" target="_blank" id="Link {str(n)}">{url_txt}</a></h4></tr>'+\
+                f'<tr style="border: none;"><h4><a href="{href}" id="Link {str(n)}" target="_blank">{url_txt}</a></h4></tr>'+\
                 f'<tr style="border: none;">{description}</tr>'+\
                 f'<tr></tr>'+\
                 f'<tr></tr>'+\
                 f'<tr style="border: none;"><td style="border: none;"></td></tr>'
-                
-                #st.markdown( f'<tr style="border: none;">{url_displayed}</tr>', unsafe_allow_html=True)
-                #st.markdown( f'<tr style="border: none;"><h4><a href="{href}" target="_blank">{url_txt}</a></h4></tr>', unsafe_allow_html=True)
-                #st.markdown( f'<tr style="border: none;">{description}</tr>', unsafe_allow_html=True)
-                #st.divider()
-
-                # timer
                 output_time = str(datetime.now())
                 save_str = "[" + str(n) + "] " + url_displayed + "|||||" + href + "|||||" + description
                 row = [user_id, input_time, query, output_time, save_str]
@@ -110,8 +102,9 @@ if user_id:
             else:
                 pass
         
+        # result_str += '</table></html>'            
         st.markdown(f'{result_str}', unsafe_allow_html=True)
-        
+
         # record clicks
         clicked = click_detector(result_str)
         sheet.insert_row(clicked)
