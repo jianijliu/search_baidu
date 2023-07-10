@@ -107,7 +107,7 @@ if user_id:
 
         # record clicks
         clicked = click_detector(result_str)
-        print(clicked)
+        st.markdown(clicked)
         # sheet.insert_row(clicked)
         
 else:    
