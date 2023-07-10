@@ -92,14 +92,17 @@ if user_id:
             ######### HTML code to display search results ##########
             ########################################################
             if n < 10:
-                result_str += f'<tr style="border: none;"></tr>'+\
-                f'<tr style="border: none;"></tr>'+\
-                f'<tr style="border: none;">{url_displayed}</tr>'+\
-                f'<tr style="border: none;"><h5><a href="{href}" id="Link {str(n)}" target="_blank">{url_txt}</a></h5></tr>'+\
-                f'<tr style="border: none;">{description}</tr>'+\
-                f'<tr></tr>'+\
-                f'<tr></tr>'+\
-                f'<tr style="border: none;"><td style="border: none;"></td></tr>'
+                result_str += f"""
+                    <p><a href='#' id='Link {str(n)}'>{url_txt}</a></p>
+                """
+                #result_str += f'<tr style="border: none;"></tr>'+\
+                #f'<tr style="border: none;"></tr>'+\
+                #f'<tr style="border: none;">{url_displayed}</tr>'+\
+                #f'<tr style="border: none;"><h5><a href="{href}" id="Link {str(n)}" target="_blank">{url_txt}</a></h5></tr>'+\
+                #f'<tr style="border: none;">{description}</tr>'+\
+                #f'<tr></tr>'+\
+                #f'<tr></tr>'+\
+                #f'<tr style="border: none;"><td style="border: none;"></td></tr>'
                 output_time = str(datetime.now())
                 save_str = "[" + str(n) + "] " + url_displayed + "|||||" + href + "|||||" + description
                 row = [user_id, input_time, query, output_time, save_str]
