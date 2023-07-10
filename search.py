@@ -13,7 +13,15 @@ from serpapi import GoogleSearch
 #### part 0. main page setting
 #st.set_page_config(page_title='ggsearch-Jiani', page_icon=':robot:')
 #st.header("Ask Google")
-
+col1, col2, col3 = st.columns([1,6,1])
+with col1:
+    st.write("")
+with col2:
+    st.image("lumina.png", width=500)
+with col3:
+    st.write("")
+# st.image(image='lumina.png', width=500)
+st.markdown('\n')
 
 #### part 1. Instruction (sidebar)
 st.sidebar.title("Instruction")
@@ -45,13 +53,8 @@ Google_API_KEY = st.secrets['Google_API_KEY']
 
 # st.markdown('<h1 style="background-color: gainsboro; padding-left: 10px; padding-bottom: 20px;">Google Search</h1>', unsafe_allow_html=True)
 
-
 if user_id: 
-    col1, col2 = st.columns([1.5, 3])
-    with col1:
-        st.image(image='lumina.png', width=150)
-    with col2:
-        query = st.text_input(label=" ", placeholder="Search")
+    query = st.text_input(label=" ", placeholder="Search")
         
     if query: #Activates the code below on hitting Enter/Return in the search textbox
         input_time = str(datetime.now())
