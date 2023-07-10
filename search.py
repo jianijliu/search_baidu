@@ -56,7 +56,7 @@ Google_API_KEY = st.secrets['Google_API_KEY']
 
 
 
-content = """<p><a href="https://github.com/vivien000/st-click-detector" id='Link 1'>First link</a></p>
+content = """<p><a href="https://www.google.com.hk/webhp?hl=zh-CN&sourceid=cnhp&gws_rd=ssl" id='Link 1'>First link</a></p>
     <p><a href='#' id='Link 2'>Second link</a></p>
     <a href='#' id='Image 1'><img width='20%' src='https://images.unsplash.com/photo-1565130838609-c3a86655db61?w=200'></a>
     <a href='#' id='Image 2'><img width='20%' src='https://images.unsplash.com/photo-1565372195458-9de0b320ef04?w=200'></a>
