@@ -14,31 +14,6 @@ from streamlit.components.v1 import html
 
 #### Demo: https://search-test-jiani.streamlit.app/
 
-#### copy from st_click_detector
-#parent_dir = os.path.dirname(os.path.abspath(__file__))
-#st.write(str(parent_dir))
-build_dir = "https://github.com/jianijliu/search/tree/main/st_click_detector_"
-_component_func = components.declare_component("st_click_detector_", path=build_dir)
-
-def click_detector(html_content, key=None):
-    """Display HTML content and detect when links are clicked on".
-
-    Parameters
-    ----------
-    html_content: str
-        Content to display and from which clicks should be detected
-    
-    Returns
-    -------
-    str
-        The id of the last link clicked on (or "" before any click)
-
-    """
-    component_value = _component_func(html_content=html_content, key=key, default="",)
-    return component_value
-
-
-
 #### part 0. main page setting
 st.set_page_config(page_title='Lumina.AI', page_icon=':robot:')
 col1, col2, col3 = st.columns([1,6,1])
