@@ -90,8 +90,12 @@ if user_id:
             ######### HTML code to display search results ##########
             ########################################################
             if n < 10:
+                st.markdown(f'<tr style="border: none;"></tr>')
+                st.markdown(f'<tr style="border: none;">{url_displayed}</tr>')
                 st.button(href)
-                result_str += f'<tr style="border: none;"><h5><a href="{href}" id="Link {str(n)}" target="_blank">https://www.google.com</a></h5></tr>'
+                st.markdown(f'<tr style="border: none;">{description}</tr>')
+                st.divider()
+                
                 #result_str += f'<tr style="border: none;"></tr>'+\
                 #f'<tr style="border: none;"></tr>'+\
                 #f'<tr style="border: none;">{url_displayed}</tr>'+\
@@ -112,9 +116,9 @@ if user_id:
 
         # record clicks
         #if result_str:
-        clicked = click_detector(result_str)                
-        st.markdown(f"**{clicked} clicked**" if clicked != "" else "")
-        clicked = click_detector(result_str, value = "new")   
+        #clicked = click_detector(result_str)                
+        #st.markdown(f"**{clicked} clicked**" if clicked != "" else "")
+        #clicked = click_detector(result_str, value = "new")   
 
         # st.markdown(clicked)
         # sheet.insert_row(clicked)
