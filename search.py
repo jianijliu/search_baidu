@@ -126,7 +126,9 @@ if user_id:
                 sheet.insert_row(row)
             else:
                 pass
-                
+
+        st.write(st.session_state)
+        
         for href in hrefs:
             if st.session_state[href]:
                 webbrowser.open_new_tab(href)
