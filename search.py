@@ -16,6 +16,7 @@ from streamlit.components.v1 import html
 
 #### copy from st_click_detector
 parent_dir = os.path.dirname(os.path.abspath(__file__))
+st.write(str(parent_dir))
 build_dir = os.path.join(parent_dir, "frontend/build")
 _component_func = components.declare_component("st_click_detector_", path=build_dir)
 
