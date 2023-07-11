@@ -87,13 +87,15 @@ if user_id:
             ########################################################
             ######### HTML code to display search results ##########
             ########################################################
-            def click_button(key):
-                st.session_state.key.clicked = True
+            def click_button(href):
+                st.session_state[href] = True
             
             hrefs = []
             if n < 10:
-                if 'clicked' not in st.session_state[href]:
-                    st.session_state.href.clicked = False
+                if href not in st.session_state:
+                    st.session_state[href] = False
+                #if 'clicked' not in st.session_state[href]:
+                #    st.session_state.href.clicked = False
                     
                 # st.markdown('\n')
                 st.write(url_displayed)
@@ -118,7 +120,7 @@ if user_id:
                 pass
                 
         for href in hrefs:
-            if st.session_state.href.clicked:
+            if st.session_state[href]:
                 st.write(f"Button {href} Clicked!")
 
         # result_str += '</table></html>'            
