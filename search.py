@@ -88,8 +88,8 @@ if user_id:
             ######### HTML code to display search results ##########
             ########################################################
             if n < 10:
-                st.markdown('\n')
-                st.markdown(url_displayed)
+                # st.markdown('\n')
+                st.write(url_displayed)
                 st.button(href)
                 st.markdown(description)
                 st.divider()
