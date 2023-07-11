@@ -6,4 +6,3 @@ oauth2client
 gspread
 datetime
 st-click-detector
-webbrowser
