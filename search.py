@@ -95,7 +95,7 @@ if user_id:
             def click_button(href):
                 st.session_state[href] = True
                 #st.write(st.session_state)
-                webbrowser.open_new_tab(href)
+                #webbrowser.open_new_tab(href)
                 #st.write(f"Button {href} Clicked!")
                 
                 
@@ -106,7 +106,7 @@ if user_id:
                     
                 # st.markdown('\n')
                 st.write(url_displayed)
-                st.button(href, on_click=click_button, args=(href, st.session_state, ))
+                st.button(href, on_click=click_button, args=(hrefs))
                 st.markdown(description)
                 st.divider()
                 hrefs.append(href)
