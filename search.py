@@ -94,10 +94,9 @@ if user_id:
 
             def click_button(href):
                 st.session_state[href] = True
-                components.iframe(href)
-                # webbrowser.open_new_tab(href)
+                # components.iframe(href)
+                webbrowser.open_new_tab(href)
                 # st.write(f"Button {href} Clicked!")
-                
                 
             hrefs = []
             if n < 10:
