@@ -92,15 +92,16 @@ if user_id:
             
             hrefs = []
             if n < 10:
+                if 'clicked' not in st.session_state.href:
+                    st.session_state.href.clicked = False
+                    
                 # st.markdown('\n')
                 st.write(url_displayed)
                 st.button(href, on_click=click_button(href))
                 st.markdown(description)
                 st.divider()
                 hrefs.append(href)
-                if 'clicked' not in st.session_state.href:
-                    st.session_state.href.clicked = False
-                
+            
                 #result_str += f'<tr style="border: none;"></tr>'+\
                 #f'<tr style="border: none;"></tr>'+\
                 #f'<tr style="border: none;">{url_displayed}</tr>'+\
