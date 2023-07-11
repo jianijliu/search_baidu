@@ -15,13 +15,13 @@ from streamlit.components.v1 import html
 
 #### part 0. main page setting
 st.set_page_config(page_title='Lumina.AI', page_icon=':robot:')
-col1, col2, col3 = st.columns([1,6,1])
-with col1:
-    st.write("")
-with col2:
-    st.image("lumina.png", width=500)
-with col3:
-    st.write("")
+#col1, col2, col3 = st.columns([1,6,1])
+#with col1:
+#    st.write("")
+#with col2:
+#    st.image("lumina.png", width=500)
+#with col3:
+#    st.write("")
 # st.image(image='lumina.png', width=500)
 st.markdown('\n')
 
