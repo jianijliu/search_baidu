@@ -86,16 +86,17 @@ if user_id:
                 description = " "    
                 
             # Present and Save the result data frame after processing each individual search result
-            def click_button(href, st.session_state):
-                st.session_state[href] = True
-                webbrowser.open_new_tab(href)
-                st.write(st.session_state)
-                
             def open_page(URL):
                 open_script= """
-                <script type="text/javascript">window.open('%s', '_blank').focus();</script>
-                """ % (url)
+                <script type="text/javascript">window.open('%s', '_blank').focus();</script>""" % (url)
                 html(open_script)
+                
+            def click_button(href, st.session_state):
+                st.session_state[href] = True
+                #webbrowser.open_new_tab(href)
+                open_page(href)
+                st.write(st.session_state)
+                
             
             hrefs = []
             if n < 10:
