@@ -60,7 +60,7 @@ if user_id:
     if query: #Activates the code below on hitting Enter/Return in the search textbox
         result_str = ""
         input_time = str(datetime.now())
-        params = {"q": query, "device": "desktop", "hl": "en", "gl": "us", "num": "20", "api_key": Google_API_KEY, "output": "HTML"}
+        params = {"q": query, "device": "desktop", "hl": "en", "gl": "us", "num": "2", "api_key": Google_API_KEY, "output": "HTML"}
         # define the search search
         search = GoogleSearch(params)
         json_results = search.get_json()
@@ -87,12 +87,19 @@ if user_id:
             ########################################################
             ######### HTML code to display search results ##########
             ########################################################
+            def click_button(key):
+                st.session_state.key.clicked = True
+            
+            hrefs = []
             if n < 10:
                 # st.markdown('\n')
                 st.write(url_displayed)
-                st.button(href)
+                st.button(href, on_click=click_button(href))
                 st.markdown(description)
                 st.divider()
+                hrefs.append(href)
+                if 'clicked' not in st.session_state.href:
+                    st.session_state.href.clicked = False
                 
                 #result_str += f'<tr style="border: none;"></tr>'+\
                 #f'<tr style="border: none;"></tr>'+\
@@ -108,7 +115,11 @@ if user_id:
                 sheet.insert_row(row)
             else:
                 pass
-        
+                
+        for href in hrefs:
+            if st.session_state.href.clicked:
+                st.write(f"Button {href} Clicked!")
+
         # result_str += '</table></html>'            
         # st.markdown(f'{result_str}', unsafe_allow_html=True)
 
