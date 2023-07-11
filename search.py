@@ -117,11 +117,11 @@ if user_id:
             else:
                 pass
 
-        st.write(st.session_state)
+        # st.write(st.session_state)
         
-        for href in hrefs:
-            if st.session_state[href]:
-                st.write(st.session_state)
+        #for href in hrefs:
+        #    if st.session_state[href]:
+        #        st.write(st.session_state)
                 #webbrowser.open_new_tab(href)
                 #st.write(f"Button {href} Clicked!")
         
