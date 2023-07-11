@@ -55,9 +55,8 @@ sheet = client.open_by_url(sheet_url).sheet1   # select a worksheet
 Google_API_KEY = st.secrets['Google_API_KEY']
 
 def nav_to(url):
-    nav_script = """
-        <meta http-equiv="refresh" content="0; url='%s'">""" % (url)
-    st.write(nav_script, unsafe_allow_html=True)
+    js = f'window.open("{url}", "_blank").then(r => window.parent.location.href);'
+    st_javascript(js)
     
 if user_id: 
     # query = st.text_input(label=" ", placeholder="ask Lumina.AI")
