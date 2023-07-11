@@ -92,7 +92,7 @@ if user_id:
             
             hrefs = []
             if n < 10:
-                if 'clicked' not in st.session_state.href:
+                if 'clicked' not in st.session_state[href]:
                     st.session_state.href.clicked = False
                     
                 # st.markdown('\n')
