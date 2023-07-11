@@ -86,12 +86,12 @@ if user_id:
                 description = " "    
                 
             # Present and Save the result data frame after processing each individual search result
-            ########################################################
-            ######### HTML code to display search results ##########
-            ########################################################
             def click_button(href):
                 st.session_state[href] = True
-
+                st.write(st.session_state)
+                webbrowser.open_new_tab(href)
+                st.write(f"Button {href} Clicked!")
+                
             def open_page(URL):
                 open_script= """
                 <script type="text/javascript">window.open('%s', '_blank').focus();</script>
@@ -102,8 +102,6 @@ if user_id:
             if n < 10:
                 if href not in st.session_state:
                     st.session_state[href] = False
-                #if 'clicked' not in st.session_state[href]:
-                #    st.session_state.href.clicked = False
                     
                 # st.markdown('\n')
                 st.write(url_displayed)
@@ -112,14 +110,6 @@ if user_id:
                 st.divider()
                 hrefs.append(href)
             
-                #result_str += f'<tr style="border: none;"></tr>'+\
-                #f'<tr style="border: none;"></tr>'+\
-                #f'<tr style="border: none;">{url_displayed}</tr>'+\
-                #f'<tr style="border: none;"><h5><a href="{href}" id="Link {str(n)}" target="_blank">{url_txt}</a></h5></tr>'+\
-                #f'<tr style="border: none;">{description}</tr>'+\
-                #f'<tr></tr>'+\
-                #f'<tr></tr>'+\
-                #f'<tr style="border: none;"><td style="border: none;"></td></tr>'
                 output_time = str(datetime.now())
                 save_str = "[" + str(n) + "] " + url_displayed + "|||||" + href + "|||||" + description
                 row = [user_id, input_time, query, output_time, save_str]
@@ -127,25 +117,13 @@ if user_id:
             else:
                 pass
 
-        
+        st.write(st.session_state)
         
         for href in hrefs:
             if st.session_state[href]:
                 st.write(st.session_state)
                 #webbrowser.open_new_tab(href)
                 #st.write(f"Button {href} Clicked!")
-
-        # result_str += '</table></html>'            
-        # st.markdown(f'{result_str}', unsafe_allow_html=True)
-
-        # record clicks
-        # if result_str:
-        # clicked = click_detector(result_str)                
-        # st.markdown(f"**{clicked} clicked**" if clicked != "" else "")
-        # clicked = click_detector(result_str, value = "new")   
-
-        # st.markdown(clicked)
-        # sheet.insert_row(clicked)
         
 else:    
     # st.header("")
