@@ -8,6 +8,7 @@ from datetime import datetime
 import socket
 from serpapi import GoogleSearch
 from st_click_detector import click_detector
+from streamlit.components.v1 import html
 
 #### Demo: https://search-test-jiani.streamlit.app/
 
@@ -89,6 +90,12 @@ if user_id:
             ########################################################
             def click_button(href):
                 st.session_state[href] = True
+
+            def open_page(URL):
+                open_script= """
+                <script type="text/javascript">window.open('%s', '_blank').focus();</script>
+                """ % (url)
+                html(open_script)
             
             hrefs = []
             if n < 10:
@@ -99,7 +106,7 @@ if user_id:
                     
                 # st.markdown('\n')
                 st.write(url_displayed)
-                st.button(href, on_click=click_button(href))
+                st.button(href, on_click=click_button, args=(href,))
                 st.markdown(description)
                 st.divider()
                 hrefs.append(href)
@@ -121,6 +128,7 @@ if user_id:
                 
         for href in hrefs:
             if st.session_state[href]:
+                st.open_page(href)
                 st.write(f"Button {href} Clicked!")
 
         # result_str += '</table></html>'            
