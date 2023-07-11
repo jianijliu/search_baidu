@@ -54,7 +54,11 @@ sheet = client.open_by_url(sheet_url).sheet1   # select a worksheet
 #### Set Google Search Key (reference: https://github.com/serpapi/google-search-results-python)
 Google_API_KEY = st.secrets['Google_API_KEY']
 
-
+def nav_to(url):
+    nav_script = """
+        <meta http-equiv="refresh" content="0; url='%s'">""" % (url)
+    st.write(nav_script, unsafe_allow_html=True)
+    
 if user_id: 
     # query = st.text_input(label=" ", placeholder="ask Lumina.AI")
     query = st.chat_input("ask Lumina.AI")
@@ -94,8 +98,9 @@ if user_id:
 
             def click_button(href):
                 st.session_state[href] = True
+                nav_to(href)
                 # components.iframe(href)
-                webbrowser.open_new_tab(href)
+                # webbrowser.open_new_tab(href)
                 # st.write(f"Button {href} Clicked!")
                 
             hrefs = []
