@@ -89,7 +89,7 @@ if user_id:
                 description = " "    
                 
             # Present and Save the result data frame after processing each individual search result
-            #def click_button(href, st.session_state):
+            # def click_button(href, st.session_state):
             #    st.session_state[href] = True
             #    webbrowser.open_new_tab(href)
                 # open_page(href)
@@ -109,13 +109,13 @@ if user_id:
                     
                 # st.markdown('\n')
                 st.write(url_displayed)
-                st.button(href, on_click=click_button, args=(hrefs))
+                st.button(url_txt, on_click=click_button, args=(hrefs))
                 st.markdown(description)
                 st.divider()
                 hrefs.append(href)
             
                 output_time = str(datetime.now())
-                save_str = "[" + str(n) + "] " + url_displayed + "|||||" + href + "|||||" + description
+                save_str = "[" + str(n) + "] " + url_displayed + "|||||" + url_txt + "|||||" + href + "|||||" + description
                 row = [user_id, input_time, query, output_time, save_str]
                 sheet.insert_row(row)
             else:
