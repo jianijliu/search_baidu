@@ -6,6 +6,7 @@ import pandas as pd
 import gspread
 from datetime import datetime
 import socket
+import webbrowser
 from serpapi import GoogleSearch
 from st_click_detector import click_detector
 from streamlit.components.v1 import html
@@ -128,7 +129,7 @@ if user_id:
                 
         for href in hrefs:
             if st.session_state[href]:
-                st.write(f'<iframe src={href}></iframe>', unsafe_allow_html=True,)
+                webbrowser.open_new_tab(href)
                 st.write(f"Button {href} Clicked!")
 
         # result_str += '</table></html>'            
