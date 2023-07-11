@@ -52,8 +52,6 @@ sheet = client.open_by_url(sheet_url).sheet1   # select a worksheet
 #### Set Google Search Key (reference: https://github.com/serpapi/google-search-results-python)
 Google_API_KEY = st.secrets['Google_API_KEY']
 
-# st.markdown('<h1 style="background-color: gainsboro; padding-left: 10px; padding-bottom: 20px;">Google Search</h1>', unsafe_allow_html=True)
-
 
 if user_id: 
     # query = st.text_input(label=" ", placeholder="ask Lumina.AI")
@@ -115,10 +113,10 @@ if user_id:
         # st.markdown(f'{result_str}', unsafe_allow_html=True)
 
         # record clicks
-        #if result_str:
-        #clicked = click_detector(result_str)                
-        #st.markdown(f"**{clicked} clicked**" if clicked != "" else "")
-        #clicked = click_detector(result_str, value = "new")   
+        # if result_str:
+        # clicked = click_detector(result_str)                
+        # st.markdown(f"**{clicked} clicked**" if clicked != "" else "")
+        # clicked = click_detector(result_str, value = "new")   
 
         # st.markdown(clicked)
         # sheet.insert_row(clicked)
