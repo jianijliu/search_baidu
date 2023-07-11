@@ -128,7 +128,7 @@ if user_id:
                 
         for href in hrefs:
             if st.session_state[href]:
-                open_page(href)
+                components.iframe(href)
                 st.write(f"Button {href} Clicked!")
 
         # result_str += '</table></html>'            
