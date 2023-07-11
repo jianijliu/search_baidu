@@ -92,17 +92,12 @@ if user_id:
                 # open_page(href)
                 # st.write(st.session_state)
 
-            def click_button(href, st.session_state):
+            def click_button(href):
                 st.session_state[href] = True
                 #st.write(st.session_state)
                 webbrowser.open_new_tab(href)
                 #st.write(f"Button {href} Clicked!")
                 
-            def open_page(URL):
-                open_script= """
-                <script type="text/javascript">window.open('%s', '_blank').focus();</script>
-                """ % (url)
-                html(open_script)
                 
             hrefs = []
             if n < 10:
