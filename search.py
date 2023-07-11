@@ -94,7 +94,8 @@ if user_id:
 
             def click_button(href):
                 st.session_state[href] = True
-                #st.write(st.session_state)
+                
+                st.write(st.session_state)
                 #webbrowser.open_new_tab(href)
                 #st.write(f"Button {href} Clicked!")
                 
