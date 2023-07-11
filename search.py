@@ -94,10 +94,9 @@ if user_id:
 
             def click_button(href):
                 st.session_state[href] = True
-                
-                st.write(st.session_state)
-                #webbrowser.open_new_tab(href)
-                #st.write(f"Button {href} Clicked!")
+                components.iframe(href)
+                # webbrowser.open_new_tab(href)
+                # st.write(f"Button {href} Clicked!")
                 
                 
             hrefs = []
@@ -119,13 +118,13 @@ if user_id:
             else:
                 pass
 
-        # st.write(st.session_state)
         
-        #for href in hrefs:
+        # st.write(st.session_state)
+        # for href in hrefs:
         #    if st.session_state[href]:
         #        st.write(st.session_state)
-                #webbrowser.open_new_tab(href)
-                #st.write(f"Button {href} Clicked!")
+                # webbrowser.open_new_tab(href)
+                # st.write(f"Button {href} Clicked!")
         
 else:    
     # st.header("")
