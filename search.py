@@ -128,8 +128,9 @@ if user_id:
             else:
                 pass
 
-        clicked = click_detector(result_str)
-        st.markdown(f"**{clicked} clicked**" if clicked != "" else "")
+        if click_detector(result_str):
+            clicked = click_detector(result_str)
+            st.markdown(f"**{clicked} clicked**" if clicked != "" else "")
         # st.write(st.session_state)
         # for href in hrefs:
         #    if st.session_state[href]:
