@@ -6,12 +6,37 @@ import pandas as pd
 import gspread
 from datetime import datetime
 import socket
+import os
 import webbrowser
 from serpapi import GoogleSearch
 from st_click_detector import click_detector
 from streamlit.components.v1 import html
 
 #### Demo: https://search-test-jiani.streamlit.app/
+
+#### copy from st_click_detector
+parent_dir = os.path.dirname(os.path.abspath(__file__))
+build_dir = os.path.join(parent_dir, "frontend/build")
+_component_func = components.declare_component("st_click_detector_", path=build_dir)
+
+def click_detector(html_content, key=None):
+    """Display HTML content and detect when links are clicked on".
+
+    Parameters
+    ----------
+    html_content: str
+        Content to display and from which clicks should be detected
+    
+    Returns
+    -------
+    str
+        The id of the last link clicked on (or "" before any click)
+
+    """
+    component_value = _component_func(html_content=html_content, key=key, default="",)
+    return component_value
+
+
 
 #### part 0. main page setting
 st.set_page_config(page_title='Lumina.AI', page_icon=':robot:')
@@ -108,11 +133,18 @@ if user_id:
                     st.session_state[href] = False
                     
                 # st.markdown('\n')
-                st.write(url_displayed)
-                st.button(url_txt, on_click=click_button, args=(hrefs))
-                st.markdown(description)
-                st.divider()
-                hrefs.append(href)
+                #st.write(url_displayed)
+                #st.button(url_txt, on_click=click_button, args=(hrefs))
+                #st.markdown(description)
+                #st.divider()
+                #hrefs.append(href)
+
+                result_str += f'<tr style="border: none;"></tr>'+\
+                f'<tr style="border: none;"></tr>'+\
+                f'<tr style="border: none;">{url_displayed}</tr>'+\
+                f'<tr style="border: none;"><h5><a href="{href}" id="Link {str(n)}" target="_blank">{url_txt}</a></h5></tr>'+\
+                f'<tr style="border: none;">{description}</tr>'+\
+                f'<tr></tr>'+\
             
                 output_time = str(datetime.now())
                 save_str = "[" + str(n) + "] " + url_displayed + "|||||" + url_txt + "|||||" + href + "|||||" + description
@@ -121,7 +153,8 @@ if user_id:
             else:
                 pass
 
-        
+        clicked = click_detector(result_str)
+        st.markdown(f"**{clicked} clicked**" if clicked != "" else "")
         # st.write(st.session_state)
         # for href in hrefs:
         #    if st.session_state[href]:
