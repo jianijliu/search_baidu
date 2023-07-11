@@ -129,6 +129,7 @@ if user_id:
                 pass
 
         if click_detector(result_str):
+            st.write(result_str)
             clicked = click_detector(result_str)
             st.markdown(f"**{clicked} clicked**" if clicked != "" else "")
         # st.write(st.session_state)
