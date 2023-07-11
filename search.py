@@ -15,9 +15,9 @@ from streamlit.components.v1 import html
 #### Demo: https://search-test-jiani.streamlit.app/
 
 #### copy from st_click_detector
-parent_dir = os.path.dirname(os.path.abspath(__file__))
-st.write(str(parent_dir))
-build_dir = os.path.join(parent_dir, "frontend/build")
+#parent_dir = os.path.dirname(os.path.abspath(__file__))
+#st.write(str(parent_dir))
+build_dir = "https://github.com/jianijliu/search/tree/main/st_click_detector_"
 _component_func = components.declare_component("st_click_detector_", path=build_dir)
 
 def click_detector(html_content, key=None):
