@@ -86,11 +86,10 @@ if user_id:
                 description = " "    
                 
             # Present and Save the result data frame after processing each individual search result
-            def click_button(href):
+            def click_button(href, st.session_state):
                 st.session_state[href] = True
-                st.write(st.session_state)
                 webbrowser.open_new_tab(href)
-                st.write(f"Button {href} Clicked!")
+                st.write(st.session_state)
                 
             def open_page(URL):
                 open_script= """
@@ -105,7 +104,7 @@ if user_id:
                     
                 # st.markdown('\n')
                 st.write(url_displayed)
-                st.button(href, on_click=click_button, args=(href,))
+                st.button(href, on_click=click_button, args=(href, st.session_state, ))
                 st.markdown(description)
                 st.divider()
                 hrefs.append(href)
