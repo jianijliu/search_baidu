@@ -145,4 +145,4 @@ if user_id:
 else:    
     # st.header("")
     st.markdown("\n")
-    st.markdown("<h5 style='text-align: center;'>Please read instructions in the sidebar carefully and \n type in your Prolific ID to initiate this service!</h5>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: center;'>Please read instructions in the sidebar carefully and \n type in your Prolific ID to initiate this service!</h1>", unsafe_allow_html=True)
