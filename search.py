@@ -30,11 +30,11 @@ st.markdown('\n')
 st.sidebar.title("Instruction")
 counter_placeholder = st.sidebar.empty()
 st.sidebar.info('''
-    You will be asked to use the recommendation AI, Lumina, to **generate a recipe**. \n
-    Following the chat, you’ll be redirected back to the survey to answer a few final questions and receive your payment code. 
-    \n Please paste down your participation ID and press Enter to submit: 
+    You will be asked to complete **three tasks** with Lumina. AI. \n 
+    Please ensure that you **do not close the Qualtrics and Lumina. AI pages** while completing your tasks. \n
+    You can type in your Prolific ID and press Enter to initiate this service: \n 
     ''')
-user_id = st.sidebar.text_input("Participation ID...")   # ask for participation id
+user_id = st.sidebar.text_input("Prolific ID...")   # ask for participation id
 
 
 #### Connect to Google Sheets (reference: https://docs.streamlit.io/knowledge-base/tutorials/databases/private-gsheet)
@@ -119,7 +119,6 @@ if user_id:
                 f'<tr style="border: none;">{url_displayed}</tr>'+\
                 f'<tr style="border: none;"><h4><a href="{href}" target="_blank">{url_txt}</a></h4></tr>'+\
                 f'<tr style="border: none;">{description}</tr>'+\
-                f'<tr></tr>'+\
                 f'<hr></hr>'
 
                 ### save in Google Sheets
@@ -146,4 +145,4 @@ if user_id:
 else:    
     # st.header("")
     st.markdown("\n")
-    st.markdown("<h5 style='text-align: center;'>Please read instructions in the sidebar carefully and \n type in your participant ID first!</h5>", unsafe_allow_html=True)
+    st.markdown("<h5 style='text-align: center;'>Please read instructions in the sidebar carefully and \n type in your Prolific ID to initiate this service!</h5>", unsafe_allow_html=True)
