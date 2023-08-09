@@ -96,17 +96,17 @@ if user_id:
                 # open_page(href)
                 # st.write(st.session_state)
 
-            def click_button(href):
-                st.session_state[href] = True
-                nav_to(href)
-                # components.iframe(href)
-                # webbrowser.open_new_tab(href)
-                # st.write(f"Button {href} Clicked!")
+            #def click_button(href):
+            #    st.session_state[href] = True
+            #    nav_to(href)
+            #    # components.iframe(href)
+            #    # webbrowser.open_new_tab(href)
+            #    # st.write(f"Button {href} Clicked!")
                 
-            hrefs = []
+            #hrefs = []
             if n < 10:
-                if href not in st.session_state:
-                    st.session_state[href] = False
+                #if href not in st.session_state:
+                #    st.session_state[href] = False
                     
                 # st.markdown('\n')
                 #st.write(url_displayed)
@@ -120,18 +120,21 @@ if user_id:
                 f'<tr style="border: none;">{url_displayed}</tr>'+\
                 f'<tr style="border: none;"><h5><a href="{href}" id="Link {str(n)}" target="_blank">{url_txt}</a></h5></tr>'+\
                 f'<tr style="border: none;">{description}</tr>'
-            
+
+                ### save in Google Sheets
                 output_time = str(datetime.now())
                 save_str = "[" + str(n) + "] " + url_displayed + "|||||" + url_txt + "|||||" + href + "|||||" + description
                 row = [user_id, input_time, query, output_time, save_str]
                 sheet.insert_row(row)
             else:
                 pass
+                
+        st.markdown(f'{result_str}', unsafe_allow_html=True)
 
-        if click_detector(result_str):
-            st.write(result_str)
-            clicked = click_detector(result_str)
-            st.markdown(f"**{clicked} clicked**" if clicked != "" else "")
+        #if click_detector(result_str):
+        #    st.write(result_str)
+        #    clicked = click_detector(result_str)
+        #    st.markdown(f"**{clicked} clicked**" if clicked != "" else "")
         # st.write(st.session_state)
         # for href in hrefs:
         #    if st.session_state[href]:
