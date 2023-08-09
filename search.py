@@ -75,15 +75,16 @@ if user_id:
         # present
         # components.html(out_html)
     
-        result_df = pd.DataFrame() #Initializing the data frame that stores the results
+        result_df = pd.DataFrame() # Initializing the data frame that stores the results
         result_str = ""
         save_str = ""
         for n, i in enumerate(search_result): #iterating through the search results
+            # Step1. read from retrieved results. 
             individual_search_result = i
             url_txt = individual_search_result['title'] #Finding the title of the individual search result
             url_displayed = individual_search_result['displayed_link']
             href = individual_search_result['link'] #title's URL of the individual search result
-            # In a few cases few individual search results doesn't have a description. In such cases the description would be blank
+            # (exception handle) In a few cases few individual search results doesn't have a description. In such cases the description would be blank
             if individual_search_result.get('snippet') != None:
                 description = individual_search_result['snippet']
             else:
@@ -95,7 +96,6 @@ if user_id:
             #    webbrowser.open_new_tab(href)
                 # open_page(href)
                 # st.write(st.session_state)
-
             #def click_button(href):
             #    st.session_state[href] = True
             #    nav_to(href)
@@ -106,9 +106,8 @@ if user_id:
             #hrefs = []
             if n < 10:
                 #if href not in st.session_state:
-                #    st.session_state[href] = False
-                    
-                # st.markdown('\n')
+                #    st.session_state[href] = False   
+                #st.markdown('\n')
                 #st.write(url_displayed)
                 #st.button(url_txt, on_click=click_button, args=(hrefs))
                 #st.markdown(description)
@@ -118,8 +117,11 @@ if user_id:
                 result_str += f'<tr style="border: none;"></tr>'+\
                 f'<tr style="border: none;"></tr>'+\
                 f'<tr style="border: none;">{url_displayed}</tr>'+\
-                f'<tr style="border: none;"><h5><a href="{href}" id="Link {str(n)}" target="_blank">{url_txt}</a></h5></tr>'+\
-                f'<tr style="border: none;">{description}</tr>'
+                f'<tr style="border: none;"><h4><a href="{href}" target="_blank">{url_txt}</a></h4></tr>'+\
+                f'<tr style="border: none;">{description}</tr>'+\
+                f'<tr></tr>'+\
+                f'<tr></tr>'+\
+                f'<tr style="border: none;"><td style="border: none;"></td></tr>'
 
                 ### save in Google Sheets
                 output_time = str(datetime.now())
