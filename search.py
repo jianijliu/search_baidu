@@ -120,8 +120,7 @@ if user_id:
                 f'<tr style="border: none;"><h4><a href="{href}" target="_blank">{url_txt}</a></h4></tr>'+\
                 f'<tr style="border: none;">{description}</tr>'+\
                 f'<tr></tr>'+\
-                f'<tr></tr>'+\
-                f'<tr style="border: none;"><td style="border: none;"></td></tr>'
+                f'<hr></hr>'
 
                 ### save in Google Sheets
                 output_time = str(datetime.now())
