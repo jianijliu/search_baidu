@@ -65,11 +65,11 @@ if user_id:
         params = {"q": query, "device": "desktop", "hl": "en", "gl": "us", "num": "20", "api_key": Google_API_KEY, "output": "HTML"}
         
         # Define the search search
-        search = GoogleSearch(params)
-        json_results = search.get_json()
-        search_result = json_results['organic_results']
-
-        st.write(search_result)
+        search_result = []
+        while len(search_result) < 10:
+            search = GoogleSearch(params)
+            json_results = search.get_json()
+            search_result = json_results['organic_results']
         
         # Initializing the data frame that stores the results
         result_str = ""
