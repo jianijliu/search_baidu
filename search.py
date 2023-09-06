@@ -86,6 +86,7 @@ if user_id:
             else:
                 description = " "    
 
+            save_str = ""
             if n < 10:
                 result_str += f'<tr style="border: none;"></tr>'+\
                 f'<tr style="border: none;"></tr>'+\
@@ -96,12 +97,14 @@ if user_id:
 
                 ### save in Google Sheets
                 output_time = str(datetime.now())
-                save_str = "[" + str(n) + "] " + url_displayed + "|||||" + url_txt + "|||||" + href + "|||||" + description
-                row = [user_id, input_time, query, output_time, save_str]
-                sheet.insert_row(row)
+                save_str += " [" + str(n) + "] " + url_displayed + "|||||" + url_txt + "|||||" + href + "|||||" + description
+                #row = [user_id, input_time, query, output_time, save_str]
+                #sheet.insert_row(row)
             else:  # more than 10 results
                 pass
-                
+
+        row = [user_id, input_time, query, output_time, save_str]
+        sheet.insert_row(row)
         st.markdown(f'{result_str}', unsafe_allow_html=True)
 
 else:    
