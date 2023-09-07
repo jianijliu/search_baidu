@@ -73,7 +73,7 @@ if user_id:
         
         # Initializing the data frame that stores the results
         result_str = ""
-        save_str = ""
+        save_str = " "
         for n, i in enumerate(search_result): #iterating through the search results
             # Step1. read from retrieved results. 
             individual_search_result = i
@@ -85,8 +85,6 @@ if user_id:
                 description = individual_search_result['snippet']
             else:
                 description = " "    
-
-            save_str = ""
             if n < 10:
                 result_str += f'<tr style="border: none;"></tr>'+\
                 f'<tr style="border: none;"></tr>'+\
