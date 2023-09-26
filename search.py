@@ -20,7 +20,7 @@ col1, col2, col3 = st.columns([1,6,1])
 with col1:
     st.write("")
 with col2:
-    st.image("logo-optima.png", width=500, height=300)   # lumina.png
+    st.image("logo-optima.png", width=500)   # lumina.png
 with col3:
     st.write("")
 st.markdown('\n')
@@ -56,7 +56,7 @@ Google_API_KEY = st.secrets['Google_API_KEY']
 
 if user_id: 
     # query = st.text_input(label=" ", placeholder="ask Lumina.AI")
-    query = st.chat_input("ask Lumina.AI")
+    query = st.chat_input("ask Optima")
     
     if query:  # Activates the code below by hitting Enter/Return in the search textbox
         result_str = ""
