@@ -69,7 +69,7 @@ if user_id:
         while len(search_result) < 10:
             search = BaiduSearch(params)
             json_results = search.get_json()
-            search_result = json_results['organic_results']
+            search_result += json_results['organic_results']
             st.write(str(len(search_result)))
         
         # Initializing the data frame that stores the results
