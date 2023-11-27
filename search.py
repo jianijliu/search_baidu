@@ -75,7 +75,7 @@ if user_id:
         save_str = " "
         w = 0
         for n, i in enumerate(search_result): #iterating through the search results
-            print(url_txt, url_displayed, href)
+            st.write(url_txt, url_displayed, href)
             # Step1. read from retrieved results. 
             individual_search_result = i
             url_txt = individual_search_result['title'] #Finding the title of the individual search result
