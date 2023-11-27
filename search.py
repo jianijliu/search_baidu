@@ -73,19 +73,24 @@ if user_id:
         # Initializing the data frame that stores the results
         result_str = ""
         save_str = " "
+        x = 0
         for n, i in enumerate(search_result): #iterating through the search results
             # Step1. read from retrieved results. 
             individual_search_result = i
             url_txt = individual_search_result['title'] #Finding the title of the individual search result
             url_displayed = individual_search_result['displayed_link']
             href = individual_search_result['link'] #title's URL of the individual search result
-            print(href)
             # (exception handle) In a few cases few individual search results doesn't have a description. In such cases the description would be blank
             if individual_search_result.get('snippet') != None:
                 description = individual_search_result['snippet']
             else:
-                description = " "    
-            if n < 10:
+                description = " " 
+            for m in ['google', 'wikipedia']:
+                if m in url_displayed: 
+                    pass
+                else:
+                    x += 1
+            if x < 10:
                 result_str += f'<tr style="border: none;"></tr>'+\
                 f'<tr style="border: none;"></tr>'+\
                 f'<tr style="border: none;">{url_displayed}</tr>'+\
