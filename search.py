@@ -59,7 +59,7 @@ if user_id:
     query = st.chat_input("ask Optima")
     
     if query:  # Activates the code below by hitting Enter/Return in the search textbox
-        sw.write(query)
+        sw.write('write')
         result_str = ""
         input_time = str(datetime.now())
         params = {"q": query, "device": "desktop", "num": "13", "api_key": Google_API_KEY, "output": "HTML"}
