@@ -85,6 +85,7 @@ if user_id:
             else:
                 description = " "    
             if n < 10:
+                sw.markdown(f'<tr style="border: none;">{url_displayed}</tr>')
                 result_str += f'<tr style="border: none;"></tr>'+\
                 f'<tr style="border: none;"></tr>'+\
                 f'<tr style="border: none;">{url_displayed}</tr>'+\
