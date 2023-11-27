@@ -61,7 +61,7 @@ if user_id:
     if query:  # Activates the code below by hitting Enter/Return in the search textbox
         result_str = ""
         input_time = str(datetime.now())
-        params = {"q": query, "device": "desktop", "hl": "en", "gl": "us", "num": "20", "api_key": Google_API_KEY, "output": "HTML"}
+        params = {"q": query, "device": "desktop", "num": "13", "api_key": Google_API_KEY, "output": "HTML"}
         
         # Define the search search
         search_result = []
@@ -84,8 +84,7 @@ if user_id:
                 description = individual_search_result['snippet']
             else:
                 description = " "    
-            if n < 10:
-                st.markdown(f'<tr style="border: none;">{url_displayed}</tr>')
+            if n < 10: 
                 result_str += f'<tr style="border: none;"></tr>'+\
                 f'<tr style="border: none;"></tr>'+\
                 f'<tr style="border: none;">{url_displayed}</tr>'+\
