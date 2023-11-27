@@ -87,10 +87,11 @@ if user_id:
                 description = " " 
             for m in ['google', 'wikipedia']:
                 if m in url_displayed: 
-                    pass
+                    x = 0
                 else:
-                    x += 1
-            if x < 10:
+                    x = 1
+            w = 0
+            if w < 10 and x == 1:
                 result_str += f'<tr style="border: none;"></tr>'+\
                 f'<tr style="border: none;"></tr>'+\
                 f'<tr style="border: none;">{url_displayed}</tr>'+\
@@ -103,6 +104,7 @@ if user_id:
                 save_str += " [" + str(n) + "] " + url_displayed + "|||||" + url_txt + "|||||" + href + "|||||" + description
                 #row = [user_id, input_time, query, output_time, save_str]
                 #sheet.insert_row(row)
+                w += 1
             else:  # more than 10 results
                 pass
 
