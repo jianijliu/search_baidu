@@ -70,7 +70,8 @@ if user_id:
             search = BaiduSearch(params)
             json_results = search.get_json()
             search_result = json_results['organic_results']
-        st.write('write')
+            st.write(str(len(search_result)))
+        
         # Initializing the data frame that stores the results
         result_str = ""
         save_str = " "
