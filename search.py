@@ -73,7 +73,7 @@ if user_id:
         # Initializing the data frame that stores the results
         result_str = ""
         save_str = " "
-        x = 0
+        w = 0
         for n, i in enumerate(search_result): #iterating through the search results
             # Step1. read from retrieved results. 
             individual_search_result = i
@@ -85,12 +85,11 @@ if user_id:
                 description = individual_search_result['snippet']
             else:
                 description = " " 
+            x = 0  # indicate no google information; update for each result
             for m in ['google', 'wikipedia']:
-                if m in url_displayed: 
-                    x = 0
-                else:
-                    x = 1
-            w = 0
+                if x == 0:
+                    if m not in url_displayed:
+                        x = 1
             if w < 10 and x == 1:
                 result_str += f'<tr style="border: none;"></tr>'+\
                 f'<tr style="border: none;"></tr>'+\
