@@ -79,6 +79,7 @@ if user_id:
             url_txt = individual_search_result['title'] #Finding the title of the individual search result
             url_displayed = individual_search_result['displayed_link']
             href = individual_search_result['link'] #title's URL of the individual search result
+            print(href)
             # (exception handle) In a few cases few individual search results doesn't have a description. In such cases the description would be blank
             if individual_search_result.get('snippet') != None:
                 description = individual_search_result['snippet']
