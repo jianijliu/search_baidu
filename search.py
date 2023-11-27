@@ -70,13 +70,11 @@ if user_id:
             search = BaiduSearch(params)
             json_results = search.get_json()
             search_result += json_results['organic_results']
-            st.write(str(len(search_result)))
         
         # Initializing the data frame that stores the results
         result_str = ""
         save_str = " "
         for n, i in enumerate(search_result): #iterating through the search results
-            st.write(i)
             # Step1. read from retrieved results. 
             individual_search_result = i
             url_txt = individual_search_result['title'] #Finding the title of the individual search result
