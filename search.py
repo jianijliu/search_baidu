@@ -8,7 +8,7 @@ from datetime import datetime
 import socket
 import os
 import webbrowser
-from serpapi import GoogleSearch
+from serpapi import BaiduSearch
 from st_click_detector import click_detector
 from streamlit.components.v1 import html
 
@@ -51,7 +51,7 @@ sheet_url = st.secrets["private_gsheets_url"]
 sheet = client.open_by_url(sheet_url).sheet1   # select a worksheet
 
 
-# Set Google Search Key (reference: https://github.com/serpapi/google-search-results-python)
+# Set Google Search Key (reference: https://github.com/serpapi/google-search-results-python#search-baid)
 Google_API_KEY = st.secrets['Google_API_KEY']
 
 if user_id: 
@@ -63,10 +63,10 @@ if user_id:
         input_time = str(datetime.now())
         params = {"q": query, "device": "desktop", "hl": "en", "gl": "us", "num": "20", "api_key": Google_API_KEY, "output": "HTML"}
         
-        # Define the search results
+        # Define the search search
         search_result = []
         while len(search_result) < 10:
-            search = GoogleSearch(params)
+            search = BaiduSearch(params)
             json_results = search.get_json()
             search_result = json_results['organic_results']
         
@@ -77,14 +77,13 @@ if user_id:
             # Step1. read from retrieved results. 
             individual_search_result = i
             url_txt = individual_search_result['title'] #Finding the title of the individual search result
-            url_displayed = individual_search_result['link']
+            url_displayed = individual_search_result['displayed_link']
             href = individual_search_result['link'] #title's URL of the individual search result
-            
             # (exception handle) In a few cases few individual search results doesn't have a description. In such cases the description would be blank
             if individual_search_result.get('snippet') != None:
                 description = individual_search_result['snippet']
             else:
-                description = " " 
+                description = " "    
             if n < 10:
                 result_str += f'<tr style="border: none;"></tr>'+\
                 f'<tr style="border: none;"></tr>'+\
@@ -92,6 +91,7 @@ if user_id:
                 f'<tr style="border: none;"><h4><a href="{href}" target="_blank">{url_txt}</a></h4></tr>'+\
                 f'<tr style="border: none;">{description}</tr>'+\
                 f'<hr></hr>'
+
                 ### save in Google Sheets
                 output_time = str(datetime.now())
                 save_str += " [" + str(n) + "] " + url_displayed + "|||||" + url_txt + "|||||" + href + "|||||" + description
@@ -99,9 +99,11 @@ if user_id:
                 #sheet.insert_row(row)
             else:  # more than 10 results
                 pass
+
         row = [user_id, input_time, query, output_time, save_str]
         sheet.insert_row(row)
         st.markdown(f'{result_str}', unsafe_allow_html=True)
+
 else:    
     st.markdown("\n")
     st.markdown("<h2 style='text-align: center;'>Please read instructions in the sidebar carefully and \n type in your Prolific ID to initiate this service!</h2>", unsafe_allow_html=True)
