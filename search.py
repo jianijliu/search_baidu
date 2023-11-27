@@ -62,7 +62,7 @@ if user_id:
         st.write('write')
         result_str = ""
         input_time = str(datetime.now())
-        params = {"q": query, "device": "desktop", "num": "13", "api_key": Google_API_KEY, "output": "HTML"}
+        params = {"q": query, "device": "desktop", "num": "20", "api_key": Google_API_KEY, "output": "HTML"}
         
         # Define the search search
         search_result = []
