@@ -73,10 +73,12 @@ if user_id:
         # Initializing the data frame that stores the results
         result_str = ""
         save_str = " "
+        w = 0
         for n, i in enumerate(search_result): #iterating through the search results
             # Step1. read from retrieved results. 
             individual_search_result = i
             url_txt = individual_search_result['title'] #Finding the title of the individual search result
+            url_displayed = individual_search_result['displayed_link']
             url_displayed = individual_search_result['link']
             href = individual_search_result['link'] #title's URL of the individual search result
             # (exception handle) In a few cases few individual search results doesn't have a description. In such cases the description would be blank
@@ -84,26 +86,29 @@ if user_id:
                 description = individual_search_result['snippet']
             else:
                 description = " " 
-            if n < 10:
+            x = 0  # indicate no google information; update for each result
+            for m in ['google', 'wikipedia']:
+                if x == 0:
+                    if m not in url_displayed:
+                        x = 1
+            if w < 10 and x == 1:
                 result_str += f'<tr style="border: none;"></tr>'+\
                 f'<tr style="border: none;"></tr>'+\
                 f'<tr style="border: none;">{url_displayed}</tr>'+\
                 f'<tr style="border: none;"><h4><a href="{href}" target="_blank">{url_txt}</a></h4></tr>'+\
                 f'<tr style="border: none;">{description}</tr>'+\
                 f'<hr></hr>'
-
                 ### save in Google Sheets
                 output_time = str(datetime.now())
                 save_str += " [" + str(n) + "] " + url_displayed + "|||||" + url_txt + "|||||" + href + "|||||" + description
                 #row = [user_id, input_time, query, output_time, save_str]
                 #sheet.insert_row(row)
+                w += 1
             else:  # more than 10 results
                 pass
-
         row = [user_id, input_time, query, output_time, save_str]
         sheet.insert_row(row)
         st.markdown(f'{result_str}', unsafe_allow_html=True)
-
 else:    
     st.markdown("\n")
     st.markdown("<h2 style='text-align: center;'>Please read instructions in the sidebar carefully and \n type in your Prolific ID to initiate this service!</h2>", unsafe_allow_html=True)
