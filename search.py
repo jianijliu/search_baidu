@@ -78,7 +78,6 @@ if user_id:
             # Step1. read from retrieved results. 
             individual_search_result = i
             url_txt = individual_search_result['title'] #Finding the title of the individual search result
-            url_displayed = individual_search_result['displayed_link']
             url_displayed = individual_search_result['link']
             href = individual_search_result['link'] #title's URL of the individual search result
             # (exception handle) In a few cases few individual search results doesn't have a description. In such cases the description would be blank
