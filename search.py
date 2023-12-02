@@ -26,14 +26,19 @@ with col3:
 st.markdown('\n')
 
 #### part 1. Instruction (sidebar)
-st.sidebar.title("Instructions")
+st.sidebar.title("任务须知")
 counter_placeholder = st.sidebar.empty()
 st.sidebar.info('''
-    You will be asked to complete **one task** with the Optima platform. \n 
-    Please ensure that you **do not close the Qualtrics and the Optima platform pages** while completing the task. \n
-    You can type in your Prolific ID and press Enter to initiate this service: \n 
+    您需要在Optima平台上完成**一个搜索任务**，在开始之前，请认真阅读以下内容: \n
+    1. 在完成任务的过程中**请不要关闭Credamo的页面**; \n
+    2. 使用自己的**实验编号**登陆Optima平台，请确保填写正确，否则可能影响实验报酬的发放; \n
+    3. 在完成任务期间**仅使用Optima平台**，请勿使用任何其他设备或工具辅助完成; \n
+    4. 请避免依靠您自己的知识来完成任务，应该充分**利用Optima平台**上搜索到的结果完成任务。\n
     ''')
-user_id = st.sidebar.text_input("Prolific ID...")   # ask for participation id
+#You will be asked to complete **one task** with the Optima platform. \n 
+#Please ensure that you **do not close the Qualtrics and the Optima platform pages** while completing the task. \n
+#You can type in your Prolific ID and press Enter to initiate this service: \n 
+user_id = st.sidebar.text_input("在此填写实验编号...")   # Prolific ID
 
 
 #### Connect to Google Sheets (reference: https://docs.streamlit.io/knowledge-base/tutorials/databases/private-gsheet)
@@ -106,4 +111,6 @@ if user_id:
 
 else:    
     st.markdown("\n")
-    st.markdown("<h2 style='text-align: center;'>Please read instructions in the sidebar carefully and \n type in your Prolific ID to initiate this service!</h2>", unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align: center;'> 感谢您参与本次实验! <br> 请先仔细阅读侧边栏中的任务须知，<br> 并输入自己的实验编号以开启实验! </h3>", unsafe_allow_html=True)
+    # st.markdown("<h2 style='text-align: center;'>Please read instructions in the sidebar carefully and \n type in your Prolific ID to initiate this service!</h2>", unsafe_allow_html=True)
+    # st.markdown("Please read instructions in the sidebar carefully and type in your participant ID first!")
